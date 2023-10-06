@@ -1,7 +1,7 @@
 import React from 'react';
 import ProductItem from '@components/ProductItem/ProductItem';
 
-const ProductContainer = ({ products }) => {
+function ProductContainer({ products }) {
   const productsList = products.slice(-4);
   return (
     <div className="products-container">
@@ -23,6 +23,6 @@ const ProductContainer = ({ products }) => {
       ))}
     </div>
   );
-};
+}
 
 export default ProductContainer;
