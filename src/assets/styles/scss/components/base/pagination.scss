@@ -1,0 +1,69 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 15rem;
+
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: 15rem;
+  }
+
+  &__prev-arrow, &__next-arrow {
+    &.disabled {
+      cursor: default;
+      background-color: $light-purple;
+      a {
+        cursor: default;
+        background-color: $light-purple;
+      }
+    }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 41rem;
+    height: 41rem;
+    cursor: pointer;
+    border-radius: 50rem;
+    background-color: $accent;
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 41rem;
+      height: 41rem;
+      cursor: pointer;
+      border-radius: 50rem;
+      background-color: $accent;
+    }
+    svg {
+      font-size: 20rem;
+
+      & > * {
+        color: $white;
+      }
+    }
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    padding: 15rem 25rem;
+    cursor: pointer;
+    border: 1rem solid $light-gray;
+    border-radius: $border-radius;
+    background-color: $transparent-white;
+  }
+
+  &__item {
+
+    &.selected {
+      border: 1rem solid $accent;
+      background-color: $light-purple;
+      .pagination__link {
+        border: 1rem solid $accent;
+        background-color: $light-purple;
+      }
+    }
+  }
+}

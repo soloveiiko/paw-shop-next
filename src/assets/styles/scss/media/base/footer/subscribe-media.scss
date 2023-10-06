@@ -1,0 +1,113 @@
+@include md {
+  .subscribe {
+
+    .container {
+      padding: 47rem 141rem;
+    }
+
+    &__container {
+      gap: 34rem;
+      &::before, &::after {
+        width: 100%;
+        height: 100%;
+      }
+
+      &::before {
+        top: 0;
+        left: 21rem;
+        background-size: 50%;
+      }
+
+      &::after {
+        right: -22rem;
+        bottom: -70rem;
+        background-size: 44%;
+        background-position-y: center;
+      }
+    }
+
+    &__img-container {
+      &_top {
+        left: 29rem;
+        width: 360rem;
+      }
+
+      &_bottom {
+        right: -26rem;
+        bottom: -119rem;
+        width: 345rem;
+        transform: rotate(2deg);
+      }
+    }
+
+    &__title {
+      font-size: 20rem;
+      margin: 0 48rem;
+      text-align: center;
+    }
+
+    &__input-container {
+
+      input {
+        padding: 32rem 156rem 29rem 29rem;
+      }
+    }
+
+    &__btn {
+      right: 5rem;
+      width: 140rem;
+      height: 61rem;
+    }
+  }
+}
+
+@include lg {
+  .subscribe {
+
+    .container {
+      padding: 51rem 158rem;
+    }
+
+    &__container {
+      align-items: center;
+      flex-direction: row;
+      max-width: 1300rem;
+      margin: 0 auto;
+      gap: 28rem;
+      &::before {
+        left: 16rem;
+        background-size: 30%;
+      }
+      &::after {
+        background-position: top right;
+        background-size: 29%;
+        right: -61rem;
+        bottom: 3rem;
+      }
+    }
+
+    &__title {
+      max-width: 379rem;
+      margin: 0;
+    }
+
+    &__input-container {
+      width: 100%;
+
+      input {
+        font-size: 15rem;
+        font-weight: 300;
+        padding: 32rem 200rem 29rem 21rem;
+      }
+    }
+
+    &__btn {
+      right: 14rem;
+      width: 171rem;
+      height: 61rem;
+      &:hover {
+        background-color: $dark;
+      }
+    }
+  }
+}

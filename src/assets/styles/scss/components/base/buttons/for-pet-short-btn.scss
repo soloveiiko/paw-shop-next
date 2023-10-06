@@ -1,0 +1,11 @@
+.for-pets {
+  &__btn {
+    @include pet-button;
+    width: 100%;
+  }
+
+  &__text {
+    white-space: nowrap;
+    font-size: 14rem;
+  }
+}

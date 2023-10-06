@@ -1,0 +1,9 @@
+.product-characteristics {
+  max-width: 1300rem;
+  margin: 0 auto;
+  img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain;
+  }
+}

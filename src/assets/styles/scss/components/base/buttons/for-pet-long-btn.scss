@@ -1,0 +1,32 @@
+.product-for-pets {
+  display: flex;
+  gap: 15rem;
+  justify-content: center;
+  &__btn {
+    @include pet-button;
+    height: 60rem;
+    width: 168rem;
+    gap: 9rem;
+    padding: 31rem 17rem;
+    font-size: 14rem;
+  }
+  &__text {
+    text-align: center;
+  }
+
+  &__icon {
+    width: 30rem;
+    height: 30rem;
+  }
+  &__arrow {
+    width: 13rem;
+    height: 13rem;
+  }
+  .cat-btn {
+    border: 1rem solid $cat;
+  }
+
+  .dog-btn {
+    border: 1rem solid $dog;
+  }
+}

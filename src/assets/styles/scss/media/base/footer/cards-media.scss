@@ -1,0 +1,15 @@
+@include md {
+  .cards {
+    &__list {
+      justify-content: flex-start;
+      gap: 11rem;
+    }
+    &__image {
+      width: 61rem;
+      height: 35rem;
+    }
+  }
+}
+
+@include lg {
+}

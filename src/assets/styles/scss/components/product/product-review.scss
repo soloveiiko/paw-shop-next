@@ -1,0 +1,32 @@
+.product-review {
+  &__container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 50rem;
+  }
+
+  &__stars-range {
+    display: flex;
+    align-items: center;
+    gap: 15rem;
+  }
+
+  &__range {
+    font-size: 36rem;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 30rem;
+  }
+
+  .reviews-item {
+    max-width: 770rem;
+  }
+
+  .pagination {
+    justify-content: center;
+  }
+}

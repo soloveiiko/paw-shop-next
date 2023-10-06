@@ -1,0 +1,86 @@
+.reviews-item {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  max-width: 310rem;
+  height: 100%;
+  padding: 35rem 33rem 39rem;
+  border-radius: $border-radius;
+  background-color: $white;
+  box-shadow: 0 5rem 20rem 0 rgba(0, 0, 0, 0.25);
+  gap: 19rem;
+
+  &__date {
+    font-size: 12rem;
+    color: $dark-gray;
+  }
+
+  &__user {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__username {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16rem;
+    font-weight: 500;
+  }
+
+  &__body {
+    font-size: 15rem;
+    font-weight: 300;
+  }
+
+  &__images {
+    display: grid;
+    grid-template-columns: repeat(3, 68rem);
+    gap: 10rem;
+  }
+
+  &__img-container {
+    display: flex;
+    width: 67rem;
+    height: 71rem;
+  }
+
+  &__image {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  &__show-more-image {
+    font-size: 15rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 67rem;
+    padding: 0;
+    cursor: pointer;
+    color: $accent;
+    border: 1rem solid $accent;
+    border-radius: 10rem;
+    text-decoration-line: underline;
+  }
+
+  &__link {
+    font-size: 15rem;
+    display: flex;
+    margin-top: 2rem;
+    color: $accent;
+    gap: 15rem;
+  }
+
+  &__arrow {
+    width: 12rem;
+    height: 19rem;
+  }
+
+  .stars-range__list {
+    display: flex;
+    gap: 6rem;
+
+    img {
+      width: 22rem;
+    }
+  }
+}

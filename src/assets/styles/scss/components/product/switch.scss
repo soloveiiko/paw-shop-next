@@ -1,0 +1,37 @@
+.switch {
+  background: linear-gradient(90deg, #FAF5FF 0.29%, #FFF 45.9%, #F5ECFF 99.79%);
+
+  &__container {
+    padding: 50rem 0;
+  }
+}
+
+.tabs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  background-color: $white;
+  gap: 10rem;
+
+  &__description, &__reviews, &__add-review {
+    font-size: 20px;
+    padding: 10rem 10rem 30rem;
+    &.selected {
+      font-weight: 500;
+    }
+  }
+
+  &__description, &__reviews {
+    color: $dark-gray;
+
+    &.selected {
+      color: $black;
+      border-bottom: 2rem solid $accent;
+    }
+  }
+
+  &__add-review {
+    color: $accent;
+  }
+}

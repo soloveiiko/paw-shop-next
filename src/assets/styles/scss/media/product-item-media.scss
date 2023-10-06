@@ -1,0 +1,100 @@
+@include md {
+  .products-item {
+    flex-shrink: 0;
+    width: calc(32.7% - 5rem);
+    padding: 32rem 19rem 22rem;
+    gap: 26rem;
+
+    &__additions {
+      top: 17rem;
+      left: 20.5rem;
+    }
+
+    &__discount, &__new {
+      padding: 8rem 11rem;
+    }
+
+    &__information {
+      gap: 5rem;
+    }
+
+    &__name {
+      font-size: $simple-text-size;
+      display: -webkit-box;
+      overflow: hidden;
+      align-self: stretch;
+      flex-shrink: 0;
+      width: 100%;
+      height: 56rem;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+    }
+
+    &__stars-container {
+      margin-top: 10rem;
+    }
+
+    .stars-range__list {
+      gap: 6rem;
+    }
+
+    &__price-container {
+      margin-top: 11rem;
+    }
+
+    &__price, &__curr-price {
+      font-size: 22rem;
+    }
+
+    &__prev-price {
+      font-size: 16rem;
+    }
+
+    .stars-range__list {
+      gap: 3rem;
+
+      img {
+        width: 15rem;
+      }
+    }
+  }
+  .in-basket {
+    &__btn {
+      font-size: 22rem;
+      padding: 10rem 13rem;
+      gap: 17rem;
+    }
+  }
+}
+
+@include lg {
+  .products-item {
+    flex-shrink: 1;
+    width: calc(25% - 23rem);
+    padding: 19rem 17rem;
+    gap: 3rem;
+
+
+    &__information {
+      gap: 17.5rem;
+    }
+
+    &__stars-container {
+      margin-top: 0;
+    }
+
+    &__price-container {
+      margin-top: 0;
+    }
+  }
+
+  .in-basket {
+    &__btn {
+      padding: 10rem 20rem;
+
+      &:hover {
+        background-color: $dark;
+      }
+    }
+  }
+}

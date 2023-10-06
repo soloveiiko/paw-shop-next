@@ -1,0 +1,155 @@
+.auth-container {
+  @include center;
+  z-index: 1002;
+}
+
+.auth {
+  display: flex;
+  flex-direction: column;
+  gap: 20rem;
+
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 15rem;
+
+    pre {
+      font-size: 20rem;
+    }
+  }
+
+  &__container {
+    &_left {
+      display: flex;
+      flex-direction: column;
+      gap: 15rem;
+    }
+  }
+
+  &__input {
+    font-size: 14rem;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-width: 287rem;
+    padding: 15rem 25rem;
+    border: 1rem solid $input;
+    border-radius: 20rem;
+    outline: none;
+    box-shadow: 0 4rem 10rem 0 rgba(0, 0, 0, 0.05);
+    gap: 10rem;
+  }
+
+  &__error {
+    font-size: 13rem;
+    margin: 10rem 0 0 5rem;
+    color: $error;
+  }
+
+  &__addition {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 30rem;
+  }
+
+  &__remember-me-title, &__reset-password {
+    white-space: nowrap;
+  }
+
+  &__remember-me {
+    display: none;
+  }
+
+  &__remember-me + label::before {
+    display: inline-block;
+    width: 18rem;
+    height: 18rem;
+    margin-right: 5rem;
+    content: "";
+    vertical-align: middle;
+    border: 1rem solid $input;
+    border-radius: 50%;
+  }
+
+  &__remember-me:checked + label::before {
+    background-color: $black
+  }
+
+  &__remember-me-title {
+    font-size: 13rem;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+  }
+
+  &__reset-password {
+    font-size: 14rem;
+    color: $accent;
+  }
+
+  &__btn-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10rem;
+  }
+
+  &__registration-btn, &__submit-btn {
+    height: 50rem;
+  }
+
+  &__submit-btn {
+    @include accent-btn;
+    font-size: 13rem;
+  }
+
+  &__registration-btn {
+    @include button;
+    padding: 10rem 15rem;
+    border: 1rem solid $accent;
+  }
+
+  &__registration-btn-text {
+    font-size: 13rem;
+    white-space: nowrap;
+    color: $accent;
+  }
+
+  &__btn-image {
+    width: 11.5rem;
+    height: 11.5rem;
+  }
+}
+
+.social-auth {
+  display: flex;
+  align-items: center;
+  gap: 14rem;
+
+  &__title {
+    font-size: 16rem;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  &__btn {
+    &_google, &_facebook {
+      padding: 10rem;
+      border-radius: 50rem;
+      background-color: #F5F5F5;
+    }
+  }
+
+  &__image {
+    width: 24rem;
+    height: 24rem;
+  }
+
+  &__text {
+    font-size: 14rem;
+    display: none;
+  }
+}

@@ -1,0 +1,18 @@
+.logo {
+  display: flex;
+  align-items: center;
+  margin-top: 3rem;
+  gap: 12rem;
+
+  &__image {
+    width: 42rem;
+  }
+
+  &__text {
+    font-family: 'Amatic SC', cursive;
+    font-size: 24rem;
+    font-weight: 700;
+    margin-top: 4rem;
+    text-transform: uppercase;
+  }
+}

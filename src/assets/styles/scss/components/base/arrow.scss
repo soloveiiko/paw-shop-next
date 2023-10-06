@@ -1,0 +1,26 @@
+.prev-arrow, .next-arrow {
+  position: absolute;
+  z-index: 10;
+  top: 51.5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 59rem;
+  height: 59rem;
+  cursor: pointer;
+  transform: translateY(-50%);
+  border-radius: 50rem;
+  background-color: $white;
+
+  svg {
+    font-size: 24rem;
+  }
+}
+
+.prev-arrow {
+  left: 0;
+}
+
+.next-arrow {
+  right: 0;
+}

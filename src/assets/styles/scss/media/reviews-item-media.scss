@@ -1,0 +1,40 @@
+@include md {
+  .reviews-item {
+    padding: 41rem 28rem 47rem 42rem;
+    gap: 15rem;
+
+    &__date {
+      font-size: 13rem;
+    }
+
+    &__images {
+      grid-template-columns: repeat(4, 70rem);
+      gap: 10rem 4rem;
+    }
+
+    .stars-range__list {
+      display: flex;
+      gap: 5rem;
+      margin-right: 9px;
+
+      img {
+        width: 22rem;
+      }
+    }
+  }
+}
+
+@include lg {
+  .reviews-item {
+    padding: 42rem;
+    gap: 16rem;
+
+    &__link:hover {
+      font-weight: 500;
+
+      .reviews-item__arrow {
+        transform: rotate(45deg);
+      }
+    }
+  }
+}

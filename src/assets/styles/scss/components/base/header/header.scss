@@ -1,0 +1,29 @@
+.header {
+  position: absolute;
+  z-index: 1001;
+  top: 0;
+  right: 0;
+  left: 0;
+  max-width: 1205rem;
+  margin: 0 auto;
+  transition: all 0.1s ease-in-out;
+
+  &__container, &__tools {
+    display: flex;
+    align-items: center;
+  }
+
+  &__container {
+    position: relative;
+    z-index: 1001;
+    justify-content: space-between;
+    padding: 13rem 17rem;
+  }
+
+  &__number {
+    font-size: $h3-size;
+    font-weight: 500;
+    display: none;
+    white-space: nowrap;
+  }
+}

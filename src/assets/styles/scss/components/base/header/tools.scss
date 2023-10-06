@@ -1,0 +1,78 @@
+.tools {
+  gap: 31rem;
+
+  &__profile {
+    font-size: 25rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    background-color: transparent;
+  }
+
+  &__basket {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10rem;
+  }
+
+  &__basket-img {
+    padding: 13rem 13.5rem;
+    border-radius: 50rem;
+    background-color: $accent;
+  }
+
+  &__basket-counter {
+    font-size: 14rem;
+    position: absolute;
+    right: -1rem;
+    bottom: -4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 22rem;
+    height: 22rem;
+    color: $white;
+    border-radius: 50rem;
+    background: $gradient;
+  }
+
+  &__basket-price {
+    display: none;
+  }
+
+  &__btn-container {
+    display: flex;
+    align-items: center;
+    width: 36rem;
+    height: 23.207rem;
+    cursor: pointer;
+  }
+
+  &__open-sidebar-btn {
+    font-size: 0;
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 1rem 18rem;
+    cursor: pointer;
+    border: none;
+    background-color: $black;
+
+    &::before, &::after {
+      position: absolute;
+      left: 0;
+      padding: 1rem 18rem;
+      content: '';
+      background-color: $black;
+    }
+
+    &::before {
+      top: -9rem;
+    }
+
+    &::after {
+      top: 9rem;
+    }
+  }
+}

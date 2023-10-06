@@ -1,0 +1,23 @@
+@include md {
+  .links {
+    width: fit-content;
+
+    &__list {
+      height: 205rem;
+      padding: 8rem 0;
+      gap: 23rem 107rem;
+    }
+  }
+}
+
+@include lg {
+  .links {
+      margin-right: 56rem;
+
+    &__list {
+      align-content: flex-end;
+      gap: 22rem 107rem;
+
+    }
+  }
+}

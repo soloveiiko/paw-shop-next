@@ -1,0 +1,11 @@
+.cards {
+  &__list {
+    display: flex;
+    justify-content: center;
+    gap: 10rem;
+  }
+
+  &__image {
+    border-radius: 10rem;
+  }
+}

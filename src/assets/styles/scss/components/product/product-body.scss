@@ -1,0 +1,217 @@
+.product-body {
+  &__container, &__top {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__container {
+    gap: 30rem;
+  }
+
+  &__top {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  &__stars-range, &__checkbox-item, &__quantity, &__checkbox-btn, &__buy, &__btn-container {
+    display: flex;
+    align-items: center;
+  }
+
+  &__stars-range {
+    gap: 15rem;
+  }
+
+  &__scu {
+    width: 100%;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 25rem;
+  }
+
+  &__images {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 45%;
+    gap: 15rem;
+  }
+
+  &__slider {
+    overflow: hidden;
+    width: calc(75% - 7.5rem);
+    height: 400rem;
+  }
+
+  &__slider-item {
+    width: 471rem;
+  }
+
+  &__slider-img {
+    height: 400rem;
+  }
+
+  &__slider-img, &__trumbs-img {
+    object-fit: contain;
+  }
+
+  .swiper-slide-thumb-active {
+    img {
+      border: 1rem solid $accent;
+      border-radius: 20rem;
+    }
+  }
+
+  &__slider-trumbs {
+    overflow-y: scroll;
+    width: calc(25% - 7.5rem);
+    height: 470rem;
+
+    swiper-slide {
+      width: 125rem;
+    }
+  }
+
+  &__trumbs-item {
+    width: 20rem;
+  }
+
+  &__trumbs-img {
+    height: auto;
+  }
+
+  &__checkbox-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30rem;
+  }
+
+  &__subtitle {
+    font-size: 15rem;
+    width: 70rem;
+    color: #181818;
+  }
+
+  &__checkbox-item, &__quantity {
+    gap: 30rem;
+  }
+
+  &__checkbox-btn {
+    justify-content: center;
+    height: 50rem;
+    padding: 25rem;
+    border: 1rem solid $light-gray;
+    border-radius: $border-radius;
+    background-color: $transparent-white;
+
+    &.selected {
+      border: 1rem solid $accent;
+      background-color: $light-purple;
+    }
+  }
+
+  &__buy {
+    gap: 30rem;
+  }
+
+  &__prev-price {
+    font-size: 15rem;
+    text-decoration: line-through;
+  }
+
+  &__curr-price {
+    font-size: 36rem;
+    font-weight: 700;
+    color: $discount;
+  }
+
+  &__price {
+    font-size: 36rem;
+  }
+
+  &__btn-container {
+    gap: 20rem;
+  }
+
+  &__in-basket, &__buy-btn {
+    @include transparent-btn;
+    width: 176rem;
+    height: 60rem;
+    padding: 10rem 15rem;
+
+    &.selected {
+      @include accent-btn;
+    }
+
+  }
+
+  &__buy-btn {
+  }
+
+  &__return {
+    display: flex;
+    align-items: center;
+    gap: 15rem;
+  }
+
+  &__return-img {
+    width: 30rem;
+    height: 30rem;
+  }
+
+  &__return-text {
+  }
+
+  &__share {
+
+  }
+}
+
+.container {
+}
+
+.share {
+  display: flex;
+  align-items: center;
+  gap: 30rem;
+
+  &__subtitle {
+    width: 70rem;
+  }
+
+  &__list {
+    display: flex;
+    gap: 15rem;
+  }
+
+  &__item {
+    &_telegram, &_facebook, &_twitter {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36rem;
+      height: 36rem;
+      padding: 7rem;
+      border-radius: 50rem;
+    }
+
+    &_telegram {
+      border: 1rem solid #0094FF;
+    }
+
+    &_facebook {
+      border: 1rem solid #3656FF;
+    }
+
+    &_twitter {
+      border: 1rem solid #36CFFF;
+
+    }
+  }
+
+  &__image {
+    object-fit: contain;
+  }
+}

@@ -1,0 +1,15 @@
+@include md {
+  .popular-products {
+    padding-bottom: 81rem;
+  }
+}
+
+@include lg {
+  .popular-products {
+    padding-bottom: 130rem;
+
+    &__for-pets {
+      gap: 30rem;
+    }
+  }
+}

@@ -1,0 +1,110 @@
+.order {
+  display: flex;
+  flex-direction: column;
+  grid-column: 2/3;
+  grid-row: 2/3;
+  gap: 15rem;
+
+  &__title-wrapper, &__items, &__item, &__general-list, &__general-item, &__general-price {
+    display: flex;
+  }
+
+  &__title-wrapper {
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__title {
+  }
+
+  &__edit-cart {
+  }
+
+  &__items {
+    flex-direction: column;
+    gap: 20rem;
+  }
+
+  &__item {
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__promocode {
+  }
+
+  &__general-list {
+    flex-direction: column;
+    gap: 15rem;
+    border-radius: 20rem;
+    background-color: $white;
+    box-shadow: 0 4rem 20rem 0 rgba(0, 0, 0, 0.10);
+    padding: 20rem;
+  }
+
+  &__general-item, &__general-price {
+    justify-content: space-between;
+  }
+
+  &__general-title {
+  }
+
+  &__general-value {
+  }
+
+  &__general-price {
+  }
+}
+
+.order-item {
+  &__img-container {
+    position: relative;
+    width: 70rem;
+    height: 70rem;
+  }
+
+  &__count {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 21rem;
+    height: 21rem;
+    color: $white;
+    border-radius: 50rem;
+    background: $discount;
+  }
+
+  &__name {
+    margin: 0 auto 0 30rem;
+  }
+
+  &__total-price {
+  }
+}
+
+.promocode-form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10rem;
+
+  &__label {
+  }
+
+  &__input {
+    @include input;
+    padding: 20rem 95rem 20rem 20rem;
+  }
+
+  &__submit {
+    @include transparent-btn;
+    position: absolute;
+    right: 5rem;
+    bottom: 5rem;
+    padding: 15rem;
+    border-radius: 15rem;
+  }
+}

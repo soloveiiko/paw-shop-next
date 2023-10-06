@@ -1,0 +1,58 @@
+@include md {
+  .information-panel {
+    gap: 27rem;
+
+    &__number-wrapper, &__social-network {
+      width: fit-content;
+    }
+
+    .logo {
+      gap: 21rem;
+
+      &__image {
+        width: 55rem;
+        height: 72rem;
+      }
+    }
+
+    &__number-wrapper {
+      gap: 7rem;
+    }
+
+    &__number {
+      font-size: 20rem;
+    }
+
+    .social-network {
+      &__list {
+        gap: 16rem;
+      }
+      &__item {
+        width: 34rem;
+        height: 34rem;
+      }
+    }
+  }
+}
+
+@include lg {
+  .information-panel {
+    gap: 30rem;
+
+    &__number-wrapper {
+      gap: 15rem;
+    }
+
+    .social-network__list {
+      gap: 18rem;
+    }
+    .logo {
+
+      &__image {
+        width: 57rem;
+        height: 63rem;
+      }
+    }
+  }
+
+}

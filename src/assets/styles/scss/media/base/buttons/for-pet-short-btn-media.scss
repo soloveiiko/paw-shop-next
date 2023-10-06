@@ -1,0 +1,27 @@
+@include md {
+  .for-pets {
+    &__btn {
+      padding: 23rem 32rem;
+    }
+  }
+}
+
+@include lg {
+  .for-pets {
+    &__btn:hover {
+      background-color: $white;
+    }
+
+    .cat-btn:hover, {
+      .for-pets__arrow {
+        transform: rotate(315deg);
+      }
+    }
+
+    .dog-btn:hover, {
+      .for-pets__arrow {
+        transform: rotate(44deg);
+      }
+    }
+  }
+}

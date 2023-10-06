@@ -1,0 +1,51 @@
+@include md {
+  .footer {
+
+    &__body {
+      padding: 43rem 18rem 40rem;
+      gap: 38rem;
+    }
+
+    &__top {
+      flex-direction: row;
+      padding-bottom: 60rem;
+      gap: 183rem;
+    }
+
+    &__bottom {
+      flex-direction: row;
+      gap: 57rem;
+    }
+
+    &__copyright {
+      font-size: 14.5rem;
+      text-align: start;
+    }
+  }
+}
+
+@include lg {
+  .footer {
+
+    &__body {
+      padding: 45rem 18rem 69rem;
+      gap: 32rem;
+    }
+
+    &__bottom, &__top {
+      justify-content: space-between;
+    }
+
+    &__top {
+      padding-bottom: 43rem;
+    }
+
+    &__bottom {
+      align-items: center;
+    }
+
+    &__copyright {
+      margin-right: 15rem;
+    }
+  }
+}

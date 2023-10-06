@@ -1,0 +1,48 @@
+.pets-filter {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 20rem;
+  border-bottom: 1rem solid $light-gray;
+  &__item {
+    &_cat, &_dog {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10rem;
+      padding: 15rem 20rem;
+    }
+
+    &_cat {
+      &.active {
+        border-bottom: 2rem solid $cat;
+      }
+    }
+
+    &_dog {
+      &.active {
+        border-bottom: 2rem solid $dog;
+      }
+    }
+  }
+
+  &__text {
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+  }
+
+  &__marker {
+  }
+
+  &__icon {
+    width: 30rem;
+    height: 30rem;
+  }
+
+  .cat {
+  }
+
+  .dog {
+  }
+}

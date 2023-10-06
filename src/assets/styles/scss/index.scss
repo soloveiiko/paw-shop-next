@@ -1,0 +1,241 @@
+// Default styles
+@import "default/variables";
+@import "default/fonts";
+@import "default/reset";
+@import "default/mixins";
+
+// Mobile styles for components
+@import "components/base/buttons/for-pet-long-btn";
+@import "components/base/buttons/for-pet-short-btn";
+@import "components/base/footer/cards";
+@import "components/base/footer/footer";
+@import "components/base/footer/information-panel";
+@import "components/base/footer/links";
+@import "components/base/footer/subscribe";
+@import "components/base/header/header";
+@import "components/base/header/logo";
+@import "components/base/header/navbar";
+@import "components/base/header/sidebar";
+@import "components/base/header/tools";
+@import "components/base/amount";
+@import "components/base/product-container";
+@import "components/base/arrow";
+@import "components/base/pagination";
+@import "components/base/preloader";
+@import "components/catalog/category-filter";
+@import "components/catalog/pets-filter";
+@import "components/catalog/product-list";
+@import "components/catalog/sort-by";
+@import "components/home/about-us";
+@import "components/home/banner";
+@import "components/home/benefits";
+@import "components/home/popular-products";
+@import "components/home/reviews";
+@import "components/reviews-item";
+@import "components/home/special-offer";
+@import "components/home/special-offer-item";
+@import "components/modal/auth";
+@import "components/modal/cart-item";
+@import "components/modal/cart-modal";
+@import "components/modal/modal-layout";
+@import "components/product/product-body";
+@import "components/product/add-review";
+@import "components/product/switch";
+@import "components/product/product-review";
+@import "components/product/similar-products";
+@import "components/product/product-characteristics";
+@import "components/product-item";
+@import "components/checkout/checkout-container";
+@import "components/checkout/checkouts";
+@import "components/checkout/order";
+
+// Mobile styles for pages
+@import "pages/home-page";
+@import "pages/catalog-page";
+
+// Media for tablet and desktop
+@import "media/base/buttons/for-pet-long-btn-media";
+@import "media/base/buttons/for-pet-short-btn-media";
+@import "media/base/footer/cards-media";
+@import "media/base/footer/footer-media";
+@import "media/base/footer/information-panel-media";
+@import "media/base/footer/links-media";
+@import "media/base/footer/subscribe-media";
+@import "media/base/header/header-media";
+@import "media/base/header/logo-media";
+@import "media/base/header/navbar-media";
+@import "media/base/header/sidebar-media";
+@import "media/base/header/tools-media";
+@import "media/base/arrow-media";
+@import "media/catalog/category-filter-media";
+@import "media/catalog/pets-filter-media";
+@import "media/catalog/product-list-media";
+@import "media/catalog/sort-by-media";
+@import "media/home/about-us-media";
+@import "media/home/banner-media";
+@import "media/home/benefits-media";
+@import "media/home/popular-products-media";
+@import "media/reviews-item-media";
+@import "media/home/reviews-media";
+@import "media/home/special-offer-item-media";
+@import "media/home/special-offer-media";
+@import "media/modal/auth-media";
+@import "media/modal/cart-item-media";
+@import "media/modal/cart-modal-media";
+@import "media/modal/modal-layout-media";
+@import "media/product-item-media";
+
+html,
+body {
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: $text-size-mobile;
+  font-weight: 400;
+  position: relative;
+  overflow-x: hidden;
+  height: 100%;
+  color: $black;
+  background-color: $white;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: inherit;
+}
+
+.paw-shop {
+  display: grid;
+  min-height: 100vh;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+}
+
+.content {
+  grid-column: 1/2;
+  grid-row: 2/3;
+}
+
+.error {
+  font-size: 14rem;
+  border: 1rem solid $error;
+  padding: 8rem 13rem;
+  color: $error;
+}
+
+.overlay {
+  z-index: 1000;
+}
+.overlayModal {
+  z-index: 1001;
+}
+.overlay, .overlayModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  &.show {
+    display: block;
+  }
+}
+
+.input-error {
+  border-color: $error;
+}
+
+h1 {
+  @include h1-title-mobile;
+}
+
+h2 {
+  @include h2-title-mobile;
+}
+
+h3 {
+  @include h3-title-mobile;
+}
+
+a {
+  color: $black;
+}
+
+.page {
+  margin-top: 100rem;
+}
+
+.container, .breadcrumbs {
+  max-width: 1300rem;
+  margin: 0 auto;
+  padding-right: 15rem;
+  padding-left: 15rem;
+}
+
+.popular-products, .about-us {
+  padding-top: 53rem;
+}
+
+.cat, .dog {
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.cat {
+  color: $cat;
+}
+
+.dog {
+  color: $dog;
+}
+
+.headline {
+  text-align: center;
+}
+
+.black-background {
+  position: absolute;
+  z-index: 1000;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: none;
+  background-color: $transparent-white;
+}
+
+@include md {
+  html,
+  body {
+    font-size: $text-size-tablet;
+  }
+
+  * {
+    font-size: $simple-text-size;
+  }
+
+  .popular-products, .about-us {
+    padding-top: 80rem;
+  }
+
+  h2 {
+    @include h2-title;
+    letter-spacing: -0.5px;
+  }
+  h3 {
+    @include h3-title;
+  }
+
+}
+
+@include lg {
+  html,
+  body {
+    font-size: $text-size-desktop;
+  }
+  .popular-products, .about-us {
+    padding-top: 141rem;
+  }
+}

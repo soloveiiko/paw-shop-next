@@ -1,0 +1,55 @@
+.sort-by {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10rem;
+
+  &__title {
+    font-size: 16rem;
+    color: $dark-gray;
+  }
+
+  &__selected-item {
+    font-size: 16rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    gap: 5rem;
+
+    svg {
+      font-size: 14rem;
+    }
+  }
+
+  &__options {
+    position: absolute;
+    top: 40rem;
+    right: -14rem;
+    display: none;
+    overflow: hidden;
+    border-radius: $border-radius;
+    background-color: $white;
+    box-shadow: 0 5rem 20rem 0 rgba(0, 0, 0, 0.25);
+    gap: 5rem;
+  }
+
+  &.open {
+    display: flex;
+
+    .sort-by__options {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__option {
+    font-size: 14rem;
+    padding: 10rem 20rem;
+    cursor: pointer;
+    white-space: nowrap;
+
+    &.selected {
+      background-color: $light-purple;
+    }
+  }
+}

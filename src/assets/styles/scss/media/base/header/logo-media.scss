@@ -1,0 +1,16 @@
+@include md {
+  .logo {
+    &__image {
+      width: 38rem;
+    }
+
+    &__text {
+      font-size: 28rem;
+    }
+  }
+}
+@include lg {
+  .logo {
+    gap: 15rem;
+  }
+}

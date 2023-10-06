@@ -1,0 +1,65 @@
+.about-us {
+  padding-bottom: 32rem;
+
+  &__list, &__text-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__list {
+    margin: 21rem 0;
+    gap: 15rem;
+  }
+
+  &__item {
+    &_dog, &_cat {
+      display: grid;
+      gap: 10rem;
+    }
+
+    &_dog {
+      padding: 0 5rem;
+    }
+
+    &_cat {
+      padding: 0 3rem;
+    }
+  }
+
+  &__text-wrapper {
+    gap: 18rem;
+  }
+
+  &__img-container {
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    grid-row: 1/2;
+  }
+
+  &__image {
+    width: 100%;
+    scale: 0.93;
+  }
+
+  &__title {
+    font-size: 17rem;
+    font-weight: 500;
+    letter-spacing: 0.1rem;
+
+    b {
+      font-size: 18rem;
+      font-weight: 500;
+      letter-spacing: -0.2rem;
+      color: $accent;
+    }
+  }
+
+  &__text {
+    font-size: 15rem;
+    font-weight: 300;
+  }
+}

@@ -1,0 +1,33 @@
+@include md {
+  .cart-item {
+    gap: 30rem;
+
+    &__img-container {
+      width: 81rem;
+      height: 81rem;
+    }
+
+    &__title {
+      font-size: 15rem;
+    }
+
+    &__range {
+      gap: 15rem;
+    }
+
+    &__minus, &__plus {
+      width: 36rem;
+      height: 36rem;
+    }
+
+    &__curr-quantity, &__curr-price {
+      font-size: 20rem;
+    }
+
+    &__btn {
+      svg {
+        font-size: 22rem;
+      }
+    }
+  }
+}

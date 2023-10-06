@@ -1,0 +1,14 @@
+.links {
+  &__list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 248rem;
+    gap: 38rem 30rem;
+  }
+
+  &__link {
+    font-size: $simple-text-size-mobile;
+    color: $white;
+  }
+}

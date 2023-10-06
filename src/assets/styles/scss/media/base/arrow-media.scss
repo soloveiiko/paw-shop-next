@@ -1,0 +1,12 @@
+@include lg {
+  .prev-arrow, .next-arrow {
+    &:hover {
+      svg {
+        font-size: 17rem;
+      }
+    }
+    svg {
+      font-size: 15rem;
+    }
+  }
+}

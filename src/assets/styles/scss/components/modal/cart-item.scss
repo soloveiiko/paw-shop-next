@@ -1,0 +1,44 @@
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 15rem;
+
+  &__img-container {
+    width: 56rem;
+    height: 56rem;
+  }
+
+  &__image {
+    object-fit: cover;
+  }
+
+  &__body {
+    font-size: $simple-text-size-mobile;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto 0 0;
+    gap: 13rem;
+  }
+
+  &__range {
+    display: flex;
+    align-items: center;
+    gap: 10rem;
+  }
+
+  &__curr-price {
+    font-size: 16rem;
+    font-weight: 500;
+  }
+
+  &__btn {
+    svg {
+      font-size: 19rem;
+
+      & > * {
+        color: #BBB;
+      }
+    }
+  }
+}

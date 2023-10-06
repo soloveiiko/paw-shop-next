@@ -1,0 +1,133 @@
+.banner {
+  position: relative;
+  overflow: hidden;
+  background: $discount;
+
+  &::before {
+    position: absolute;
+    top: 58rem;
+    right: 0;
+    bottom: 178rem;
+    left: 0;
+    width: 100%;
+    content: '';
+    opacity: 0.3;
+    background-image: url("../../../../../static/images/background/pattern.webp");
+    background-repeat: repeat-x;
+    background-size: auto 100%;
+  }
+
+  &__container {
+    position: relative;
+    padding-top: 83rem;
+    text-align: center;
+  }
+
+  .container {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  &__img {
+    position: absolute;
+    bottom: 25%;
+    left: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    max-height: 800rem;
+  }
+
+  &__img-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  &__image {
+    &_cat, &_dog {
+      object-fit: cover;
+      scale: 1;
+      height: 100%;
+      width: 100%;
+    }
+
+    &_cat {
+      margin-right: 52rem;
+      margin-bottom: -49rem;
+      scale: 1.1;
+    }
+
+    &_dog {
+      margin-right: 6rem;
+      margin-bottom: -49rem;
+      transform: rotate(342deg);
+      scale: 1.6;
+    }
+  }
+
+  &__title, &__for-pets {
+    position: relative;
+    z-index: 2;
+  }
+
+  &__title {
+    @include h1-title-mobile;
+    margin: 117rem 13% 34rem;
+    letter-spacing: 0.5rem;
+    line-height: 115%;
+    color: $accent;
+
+    &_duplicate {
+      font-size: $h1-size-mobile;
+      position: absolute;
+      z-index: -1;
+      top: 4rem;
+      left: 1rem;
+      color: $dark;
+    }
+
+    &::before, &::after {
+      position: absolute;
+      content: '';
+      background-repeat: no-repeat;
+      background-size: 100%;
+    }
+
+    &::before {
+      top: -158rem;
+      left: 25rem;
+      width: 136rem;
+      height: 250rem;
+      transform: rotate(256deg);
+      background-image: url("../../../../../static/images/background/ball.webp");
+    }
+
+    &::after {
+      top: -131rem;
+      right: -49rem;
+      width: 230rem;
+      height: 357rem;
+      transform: rotate(1deg);
+      background-image: url("../../../../../static/images/background/bone.webp");
+    }
+  }
+
+  &__for-pets {
+    display: grid;
+    justify-content: center;
+    margin: 0 13%;
+    padding-bottom: 84rem;
+    gap: 113rem 20rem;
+  }
+
+  &__text {
+    font-size: 17rem;
+    margin: 0 30rem;
+    grid-column: 1/3;
+    grid-row: 1/2;
+  }
+}

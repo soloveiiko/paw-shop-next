@@ -1,0 +1,81 @@
+@include md {
+  .reviews {
+    padding-top: 89rem;
+    padding-bottom: 236rem;
+
+    .container {
+      padding-right: 15rem;
+      padding-left: 15rem;
+    }
+
+    &__background-img {
+      margin-top: 22rem;
+      margin-left: -365rem;
+    }
+
+    &__headline {
+      margin-bottom: 44rem;
+      margin-left: 0;
+    }
+
+    .prev-arrow, .next-arrow {
+      top: auto;
+      bottom: -176rem;
+      display: flex;
+    }
+
+    .prev-arrow {
+      left: 18.5%;
+    }
+
+    .next-arrow {
+      right: 18.5%;
+    }
+
+    swiper-container::part(pagination) {
+      bottom: -126rem;
+    }
+  }
+}
+
+@include lg {
+  .reviews {
+    padding-top: 139rem;
+    padding-bottom: 177rem;
+    &::before {
+      top: 0;
+      left: -25rem;
+      background-size: 80%;
+      background-position: initial;
+    }
+
+    .container {
+      max-width: 1200rem;
+    }
+
+    &__headline {
+      margin-bottom: 39rem;
+    }
+
+    &__background-img {
+      margin: 0;
+    }
+
+    .prev-arrow, .next-arrow {
+      top: 56%;
+      bottom: auto;
+    }
+
+    .prev-arrow {
+      left: -124rem;
+    }
+
+    .next-arrow {
+      right: -124rem;
+    }
+
+    swiper-container::part(pagination) {
+      bottom: -97rem;
+    }
+  }
+}

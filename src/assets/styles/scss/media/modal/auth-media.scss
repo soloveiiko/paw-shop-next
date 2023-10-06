@@ -1,0 +1,70 @@
+@include md {
+  .auth {
+
+    &__form {
+      gap: 20rem;
+    }
+
+    &__container {
+      &_left {
+        gap: 20rem;
+      }
+    }
+
+    &__input {
+      font-size: 15rem;
+      height: 70rem;
+      padding: 23rem 25rem;
+    }
+
+    &__error {
+      font-size: 14rem;
+    }
+
+    &__remember-me-title {
+      font-size: 15rem;
+    }
+
+    &__btn-container {
+      gap: 15rem;
+    }
+
+    &__registration-btn, &__submit-btn {
+      font-size: 14rem;
+      height: 70rem;
+    }
+
+    &__registration-btn-text {
+      font-size: 14rem;
+    }
+  }
+  .social-auth {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20rem;
+
+    &__title {
+      font-size: 20rem;
+    }
+
+    &__btn {
+      &_google, &_facebook {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 277.511rem;
+        height: 70rem;
+        gap: 15rem;
+      }
+    }
+
+    &__text {
+      display: block;
+    }
+
+    &__image {
+      width: 38.762rem;
+      height: 39.666rem;
+    }
+  }
+}

@@ -1,0 +1,32 @@
+@include md {
+  .product-for-pets {
+    &__btn {
+      width: 100%;
+      padding: 28rem 26rem 28rem 31rem;
+      gap: 10rem;
+    }
+
+    &__text {
+      font-size: 15rem;
+    }
+  }
+}
+
+@include lg {
+  .product-for-pets {
+    gap: 30rem;
+
+    &__btn {
+      &:hover {
+        border-width: 1.5rem;
+
+        .product-for-pets__arrow {
+          transform: rotate(44deg);
+        }
+      }
+    }
+    &__icon {
+      width: 30rem;
+    }
+  }
+}

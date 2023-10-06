@@ -1,0 +1,169 @@
+@include md {
+  .banner {
+    &::before {
+      top: 50rem;
+      bottom: 50rem;
+    }
+
+    &__main-background {
+      bottom: 250rem;
+    }
+
+    &__for-pets {
+      max-width: 550rem;
+      margin: 0 auto;
+      padding-bottom: 128rem;
+      gap: 52rem 131rem;
+    }
+
+    &__title {
+      @include h1-title;
+      line-height: 112%;
+      width: 100%;
+      max-width: 583rem;
+      margin: 174rem auto 53rem;
+
+      &_duplicate {
+        font-size: $h1-size;
+      }
+
+      &::before, &::after {
+        position: absolute;
+        content: '';
+        background-repeat: no-repeat;
+        background-size: 100%;
+      }
+
+      &::before {
+        top: -160rem;
+        left: -67rem;
+        width: 191rem;
+        transform: rotate(246deg);
+      }
+
+      &::after {
+        top: -220rem;
+        right: -90rem;
+        width: 347rem;
+        transform: rotate(354deg);
+      }
+    }
+
+    &__text {
+      max-width: fit-content;
+      margin: 0 auto;
+    }
+
+    &__img {
+      bottom: 16%;
+    }
+
+    &__image {
+
+      &_cat {
+        margin-right: 73rem;
+        margin-bottom: -232rem;
+        scale: 1;
+      }
+
+      &_dog {
+        margin-right: 48rem;
+        margin-bottom: -213rem;
+      }
+    }
+  }
+}
+
+@include lg {
+  .banner {
+
+    &__main-background {
+      bottom: 50rem;
+    }
+
+    &__container {
+      padding: 86rem 0 59rem;
+    }
+
+    .container {
+      padding-right: 15rem;
+      padding-left: 15rem;
+    }
+
+    &__for-pets {
+      display: flex;
+      align-items: center;
+      max-width: 100%;
+      margin-bottom: 113rem;
+      padding: 0;
+      gap: 150rem;
+    }
+
+    &__title {
+      margin: 152rem auto 51rem;
+
+      &::after {
+        top: -222rem;
+        right: -86rem;
+        width: 327rem;
+      }
+    }
+
+    &__img {
+      bottom: 0;
+      justify-content: flex-start;
+    }
+
+    &__img-container {
+      overflow-y: clip;
+      height: 100%;
+    }
+
+    &__image {
+
+      &_cat {
+        margin-right: 273rem;
+        margin-bottom: -477rem;
+        scale: 1.3;
+
+        &:hover {
+          margin-bottom: -457rem;
+        }
+      }
+
+      &_dog {
+        margin-right: -100rem;
+        margin-bottom: -443rem;
+        scale: 1.2;
+
+        &:hover {
+          margin-bottom: -423rem;
+        }
+      }
+    }
+
+    &__text {
+      margin: 0 0 7rem 0;
+    }
+
+    .cat-btn {
+      &.hover {
+        background-color: $white;
+
+        .for-pets__arrow {
+          transform: rotate(-44deg);
+        }
+      }
+    }
+
+    .dog-btn {
+      &.hover {
+        background-color: $white;
+
+        .for-pets__arrow {
+          transform: rotate(44deg);
+        }
+      }
+    }
+  }
+}

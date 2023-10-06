@@ -1,0 +1,126 @@
+@mixin button {
+  font-family: 'Montserrat Alternates', sans-serif;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15rem;
+  border-radius: $border-radius;
+  cursor: pointer;
+}
+
+@mixin button-mobile {
+  font-size: $simple-text-size-mobile;
+}
+
+@mixin button-md {
+  font-size: $simple-text-size;
+}
+
+@mixin pet-button {
+  @include button;
+  padding: 22rem 25rem;
+  background-color: $transparent-white;
+}
+
+@mixin pet-button-hover {
+  background-color: $white;
+  box-shadow: 0 5rem 10rem 0 rgba(0, 0, 0, 0.10);
+}
+
+@mixin accent-btn {
+  @include button;
+  padding: 10rem 15rem;
+  color: $white;
+  background-color: $accent;
+}
+
+@mixin transparent-btn {
+  @include button;
+  padding: 10rem 15rem;
+  color: $accent;
+  background-color: $white;
+  border: 1rem solid $accent;
+}
+
+@mixin close-btn {
+  font-size: 20rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32rem;
+  height: 32rem;
+  cursor: pointer;
+  color: #8936FF;
+  border: 1rem solid #8936FF;
+  border-radius: 50rem;
+  background-color: $white;
+  svg > * {
+    color: $accent;
+  }
+}
+@mixin input {
+  border-radius: 20rem;
+  background-color: $white;
+  border: 1rem solid $input;
+}
+@mixin center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin arrow {
+  width: 59rem;
+  height: 59rem;
+}
+
+@mixin h1-title-mobile {
+  font-size: $h1-size-mobile;
+  font-weight: 900;
+  line-height: 117%;
+}
+
+@mixin h1-title {
+  font-size: $h1-size;
+  font-weight: 900;
+  line-height: 110%;
+}
+
+@mixin h2-title-mobile {
+  font-size: $h2-size-mobile;
+  font-weight: 700;
+}
+
+@mixin h2-title {
+  font-size: $h2-size;
+  font-weight: 700;
+}
+
+@mixin h3-title-mobile {
+  font-size: $h3-size-mobile;
+  font-weight: 400;
+}
+
+@mixin h3-title {
+  font-size: $h3-size;
+  font-weight: 400;
+}
+
+@mixin sm {
+  @media (min-width: #{$screen-sm-min}) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (min-width: #{$screen-md-min}) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (min-width: #{$screen-lg-min}) {
+    @content;
+  }
+}

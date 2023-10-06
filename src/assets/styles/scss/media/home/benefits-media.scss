@@ -1,0 +1,29 @@
+@include md {
+  .benefits {
+    padding: 43rem 92rem 31rem;
+
+    &__list {
+      flex-wrap: wrap;
+      height: 100rem;
+      gap: 27rem 1rem;
+    }
+  }
+}
+
+@include lg {
+  .benefits {
+    max-width: 1168rem;
+    margin: 0 auto;
+    padding: 41rem 100rem;
+    border-radius: $border-radius;
+    box-shadow: 0 5rem 10rem 0 rgba(0, 0, 0, 0.15);
+
+    &__list {
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      height: auto;
+      gap: 10rem;
+    }
+  }
+}

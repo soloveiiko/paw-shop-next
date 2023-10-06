@@ -1,0 +1,55 @@
+@include md {
+  .cart-layout {
+    max-width: 614rem;
+    border-radius: 20rem 0 0 20rem;
+    box-shadow: 0 4rem 30rem 0 rgba(0, 0, 0, 0.25);
+
+    &_top, &_center {
+      padding: 40rem;
+    }
+
+    &_bottom {
+      padding: 30rem 40rem;
+      gap: 20rem;
+    }
+
+    &__title-image {
+      width: 40rem;
+      height: 41.536rem;
+    }
+
+    &__title {
+      font-size: 36rem;
+    }
+
+    &__close-btn {
+      width: 47rem;
+      height: 47rem;
+      svg {
+        font-size: 24rem;
+      }
+    }
+
+    &__btn-container {
+      gap: 20rem;
+    }
+
+    &__subtotal-title {
+      font-size: 20rem;
+    }
+
+    &__subtotal-price {
+      font-size: 24rem;
+    }
+
+    &__shopping-btn, &__buy-btn {
+      height: 55rem;
+    }
+  }
+}
+
+@include lg {
+  .cart-layout {
+    max-width: 744rem;
+  }
+}

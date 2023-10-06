@@ -1,0 +1,54 @@
+.information-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 32rem;
+
+  &__number-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 14rem;
+  }
+
+  &__number-image {
+    width: 25rem;
+  }
+
+  &__number {
+    font-size: 17rem;
+    font-weight: 500;
+    color: $white;
+  }
+
+  .logo {
+    font-family: 'Amatic SC', cursive;
+    font-size: 50rem;
+    font-weight: 700;
+    color: $white;
+    gap: 29rem;
+
+    &__image {
+      width: 58rem;
+      height: 74rem;
+    }
+  }
+
+  .social-network {
+
+    &__list, &__item, &__link {
+      display: flex;
+      align-items: center;
+    }
+
+    &__list {
+      gap: 32rem;
+    }
+
+    &__item {
+      justify-content: center;
+      width: 33rem;
+      height: 33rem;
+      border-radius: 50rem;
+      background-color: $accent;
+    }
+  }
+}
