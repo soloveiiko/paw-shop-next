@@ -1,6 +1,6 @@
 import { icoBasket, icoUser } from '@static';
 
-function Tools({ toggleSidebar, handleAuth, handleCart }) {
+function Tools({ toggleSidebar }) {
   const onLogoutHandler = async () => {
     console.log('logout');
   };
@@ -14,11 +14,10 @@ function Tools({ toggleSidebar, handleAuth, handleCart }) {
           height="26"
           loading="lazy"
           alt="Profile"
-          onClick={handleAuth}
         />
       </button>
       <div className="tools__basket">
-        <button className="tools__basket-img" onClick={handleCart}>
+        <button className="tools__basket-img">
           <img
             className="tools__image"
             src={icoBasket}

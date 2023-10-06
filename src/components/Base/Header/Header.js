@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { openSidebar } from '@redux/modals/modalsSlice';
 import Link from 'next/link';
 
-const Header = ({ handleAuth, handleCart }) => {
+const Header = () => {
   const [tablet, setTablet] = useState(false);
   const isOpenSidebar = useSelector((state) => state.modals.sidebar);
   const dispatch = useDispatch();
@@ -33,11 +33,7 @@ const Header = ({ handleAuth, handleCart }) => {
         <Link className="header__number" href="tel:1-800-055-5566">
           1-800-055-5566
         </Link>
-        <Tools
-          toggleSidebar={toggleSidebar}
-          handleAuth={handleAuth}
-          handleCart={handleCart}
-        />
+        <Tools toggleSidebar={toggleSidebar} />
         {tablet && (
           <Sidebar isOpen={isOpenSidebar} toggleSidebar={toggleSidebar} />
         )}

@@ -1,9 +1,15 @@
 import { createApi } from '@reduxjs/toolkit/dist/query/react';
 import { baseQuery } from './configApi';
+import { HYDRATE } from 'next-redux-wrapper';
 
 export const reviewApi = createApi({
   reducerPath: 'reviewApi',
   baseQuery: baseQuery,
+  extractRehydrationInfo(action, { reducerPath }) {
+    if (action.type === HYDRATE) {
+      return action.payload[reducerPath];
+    }
+  },
   endpoints: (builder) => ({
     reviews: builder.query({
       query(body) {
