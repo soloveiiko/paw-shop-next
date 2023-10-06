@@ -14,7 +14,7 @@ const fillColorArray = [
   '#f1d045',
 ];
 
-const StarsRange = ({ value, size }) => {
+function StarsRange({ value, size }) {
   return (
     <Rating
       initialValue={value}
@@ -25,6 +25,6 @@ const StarsRange = ({ value, size }) => {
       fillColorArray={fillColorArray}
     />
   );
-};
+}
 
 export default StarsRange;

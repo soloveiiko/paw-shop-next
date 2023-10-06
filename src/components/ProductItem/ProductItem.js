@@ -2,25 +2,11 @@ import React from 'react';
 import { icoBasket } from '@static';
 import StarsRange from '@components/Base/StarsRange/StarsRange';
 import Image from '@components/Base/Image/Image';
-import { Link } from 'react-router-dom';
-import { useAddToCartMutation } from '@services/cartApi';
-import { setCartId } from '@redux/cart/cartSlice';
-import Cookies from 'js-cookie';
-import { useDispatch } from 'react-redux';
+import Link from 'next/link';
 
-const ProductItem = (props) => {
-  const [addToCart] = useAddToCartMutation();
-  const dispatch = useDispatch();
-
+function ProductItem(props) {
   const handleAddToCart = async () => {
-    const result = await addToCart({
-      id: props.product.id,
-      data: { quantity: 1 },
-    });
-    if (result.data) {
-      dispatch(setCartId(result.data.cart_id));
-      Cookies.set('cart_id', result.data.cart_id);
-    }
+    console.log('added to cart');
   };
   return (
     <div className="products-item">
@@ -32,7 +18,7 @@ const ProductItem = (props) => {
           </div>
         )}
       </div>
-      <Link to={`/catalog/${props.category}/product/${props.id}`}>
+      <Link href={`/catalog/${props.category}/product/${props.id}`}>
         <div className="products-item__img-container">
           <Image
             className="products-item__image"
@@ -46,7 +32,7 @@ const ProductItem = (props) => {
       </Link>
       <div className="products-item__information">
         <Link
-          to={`/catalog/${props.category}/product/${props.id}`}
+          href={`/catalog/${props.category}/product/${props.id}`}
           className="products-item__name"
         >
           {props.name}
@@ -84,6 +70,6 @@ const ProductItem = (props) => {
       </div>
     </div>
   );
-};
+}
 
 export default ProductItem;
