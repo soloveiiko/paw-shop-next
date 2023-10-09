@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
-import { productApi } from '@services/productApi';
+import { catalogApi } from '@services/catalogApi';
 import { reviewApi } from '@services/reviewApi';
 import { subscribeApi } from '@services/subscribeApi';
 import modalsSlice from './modals/modalsSlice';
@@ -10,7 +10,7 @@ import process from 'next/dist/build/webpack/loaders/resolve-url-loader/lib/post
 
 export const store = configureStore({
   reducer: {
-    [productApi.reducerPath]: productApi.reducer,
+    [catalogApi.reducerPath]: catalogApi.reducer,
     [reviewApi.reducerPath]: reviewApi.reducer,
     [subscribeApi.reducerPath]: subscribeApi.reducer,
     modals: modalsSlice,
@@ -21,7 +21,7 @@ export const store = configureStore({
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat([
       subscribeApi.middleware,
-      productApi.middleware,
+      catalogApi.middleware,
       reviewApi.middleware,
     ]),
 });

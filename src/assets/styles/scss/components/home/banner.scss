@@ -12,7 +12,7 @@
     width: 100%;
     content: '';
     opacity: 0.3;
-    background-image: url("../../../../../static/images/background/pattern.webp");
+    background-image: url("../../../../../../public/images/background/pattern.webp");
     background-repeat: repeat-x;
     background-size: auto 100%;
   }
@@ -103,7 +103,7 @@
       width: 136rem;
       height: 250rem;
       transform: rotate(256deg);
-      background-image: url("../../../../../static/images/background/ball.webp");
+      background-image: url("../../../../../../public/images/background/ball.webp");
     }
 
     &::after {
@@ -112,7 +112,7 @@
       width: 230rem;
       height: 357rem;
       transform: rotate(1deg);
-      background-image: url("../../../../../static/images/background/bone.webp");
+      background-image: url("../../../../../../public/images/background/bone.webp");
     }
   }
 

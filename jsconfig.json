@@ -4,12 +4,12 @@
     "paths": {
       "@assets/*": ["src/assets/*"],
       "@components/*": ["src/components/*"],
+      "@components": ["src/components/index"],
       "@pages/*": ["src/pages/*"],
       "@redux/*": ["src/redux/*"],
       "@services/*": ["src/services/*"],
-      "@static/*": ["src/static/*"],
-      "@static": ["src/static"],
-      "@layout/*": ["src/layout/*"]
+      "@layout/*": ["src/layout/*"],
+      "@public/*": ["public/*"]
     }
   }
 }

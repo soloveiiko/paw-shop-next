@@ -24,7 +24,7 @@
       top: 0;
       left: -84rem;
       transform: rotate(360deg);
-      background-image: url("../../../../../../static/images/background/toy.webp");
+      background-image: url("../../../../../../../public/images/background/toy.webp");
       background-position: left top;
       background-size: 80%;
     }
@@ -32,7 +32,7 @@
     &::after {
       right: -87rem;
       bottom: -90rem;
-      background-image: url("../../../../../../static/images/background/ball.webp");
+      background-image: url("../../../../../../../public/images/background/ball.webp");
       background-position: right bottom;
       background-size: 70%;
     }

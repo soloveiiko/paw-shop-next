@@ -2,14 +2,14 @@ import { createApi } from '@reduxjs/toolkit/dist/query/react';
 import { baseQuery } from './configApi';
 import { HYDRATE } from 'next-redux-wrapper';
 
-export const productApi = createApi({
+export const catalogApi = createApi({
   reducerPath: 'catalogApi',
   baseQuery: baseQuery,
-  extractRehydrationInfo(action, { reducerPath }) {
-    if (action.type === HYDRATE) {
-      return action.payload[reducerPath];
-    }
-  },
+  // extractRehydrationInfo(action, { reducerPath }) {
+  //   if (action.type === HYDRATE) {
+  //     return action.payload[reducerPath];
+  //   }
+  // },
   endpoints: (builder) => ({
     products: builder.query({
       query(body) {
@@ -34,4 +34,4 @@ export const {
   useProductsQuery,
   useLazyProductsQuery,
   useLazyProductItemQuery,
-} = productApi;
+} = catalogApi;

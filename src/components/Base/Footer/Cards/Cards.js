@@ -4,7 +4,8 @@ import {
   cardLiqpay,
   cardPayPal,
   cardWayForPay,
-} from '@static';
+} from 'public/images';
+import Image from 'next/image';
 
 const cardsList = [
   { id: 1, name: 'PayPal', image: cardPayPal },
@@ -19,12 +20,12 @@ function Cards() {
       <ul className="cards__list">
         {cardsList.map((card) => (
           <li key={card.id} className="cards__item">
-            <img
+            <Image
               className="cards__image"
               src={card.image}
               width="62"
               height="35"
-              loading="lazy"
+              priority
               alt={card.name}
             />
           </li>

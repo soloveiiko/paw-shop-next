@@ -1,5 +1,5 @@
 import React from 'react';
-import { icoBasket } from '@static';
+import { icoBasket } from 'public/images';
 import StarsRange from '@components/Base/StarsRange/StarsRange';
 import Image from '@components/Base/Image/Image';
 import Link from 'next/link';

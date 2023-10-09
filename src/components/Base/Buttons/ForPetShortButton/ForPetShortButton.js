@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { icoArrowLeft, icoArrowRight } from '@static';
+import { icoArrowLeft, icoArrowRight } from 'public/images';
 
 function ForPetShortButton({ isCat, isDog, className }) {
   return (

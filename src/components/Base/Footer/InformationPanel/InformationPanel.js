@@ -1,5 +1,13 @@
-import { facebook, icoEmail, instagram, logoWhite, twitter } from '@static';
+import {
+  facebook,
+  icoEmail,
+  instagram,
+  logoWhite,
+  twitter,
+} from 'public/images';
 import Link from 'next/link';
+import Image from 'next/image';
+import { amatic_sc } from '../../../../../components/layout';
 
 const socialNetworkList = [
   { id: 1, name: 'Instagram', image: instagram, link: '#' },
@@ -9,24 +17,24 @@ const socialNetworkList = [
 function InformationPanel() {
   return (
     <div className="footer__information information-panel">
-      <div className="information-panel__logo logo">
-        <img
+      <div className={`information-panel__logo logo ${amatic_sc.className}`}>
+        <Image
           className="logo__image"
           src={logoWhite}
           width="54"
           height="63.514"
-          loading="lazy"
+          priority
           alt="Logo"
         />
         PawShop
       </div>
       <div className="information-panel__number-wrapper">
-        <img
+        <Image
           className="information-panel__number-image"
           src={icoEmail}
           width="25"
           height="17.817"
-          loading="lazy"
+          priority
           alt="Number"
         />
         <a className="information-panel__number" href="tel:1-800-055-5566">
@@ -38,11 +46,11 @@ function InformationPanel() {
           {socialNetworkList.map((el) => (
             <li key={el.id} className="social-network__item">
               <Link className="social-network__link" href={el.link}>
-                <img
+                <Image
                   src={el.image}
                   width="20"
                   height="20"
-                  loading="lazy"
+                  priority
                   alt={el.name}
                 />
               </Link>

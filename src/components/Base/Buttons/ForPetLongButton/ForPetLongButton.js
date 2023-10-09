@@ -1,4 +1,4 @@
-import { icoArrowRight, icoCat, icoDog } from '@static';
+import { icoArrowRight, icoCat, icoDog } from 'public/images';
 import Link from 'next/link';
 
 function ForPetLongButton({ isCat, isDog }) {

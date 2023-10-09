@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import defaultImage from '@static/images/default.webp';
+import defaultImage from '@public/images/default.webp';
 import Preloader from '@components/Base/Preloader/Preloader';
 
 function Image({ key, className, src, width, height, loading, alt }) {
