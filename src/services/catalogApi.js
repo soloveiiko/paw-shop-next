@@ -5,33 +5,19 @@ import { HYDRATE } from 'next-redux-wrapper';
 export const catalogApi = createApi({
   reducerPath: 'catalogApi',
   baseQuery: baseQuery,
-  // extractRehydrationInfo(action, { reducerPath }) {
-  //   if (action.type === HYDRATE) {
-  //     return action.payload[reducerPath];
-  //   }
-  // },
+  extractRehydrationInfo(action, { reducerPath }) {
+    if (action.type === HYDRATE) {
+      return action.payload[reducerPath];
+    }
+  },
   endpoints: (builder) => ({
     products: builder.query({
-      query(body) {
-        return {
-          url: `variations`,
-          method: 'GET',
-          params: body,
-        };
-      },
+      query: () => `variations/`,
     }),
     productItem: builder.query({
-      query(slug) {
-        return {
-          url: `variation/${slug}`,
-          method: 'GET',
-        };
-      },
+      query: (slug) => `variations?category=${slug}`,
     }),
   }),
 });
-export const {
-  useProductsQuery,
-  useLazyProductsQuery,
-  useLazyProductItemQuery,
-} = catalogApi;
+export const { useProductsQuery, useProductItemQuery } = catalogApi;
+export const { getProducts, getProductItem } = catalogApi.endpoints;

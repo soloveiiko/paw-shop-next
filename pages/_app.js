@@ -1,14 +1,13 @@
 import Layout from '../components/layout';
-import { Provider } from 'react-redux';
-import { store } from '@redux/store';
 import '@assets/styles/scss/index.scss';
+
+const { wrapper } = require('./../src/redux/store');
+
 function MyApp({ Component, pageProps }) {
   return (
-    <Provider store={store}>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </Provider>
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
   );
 }
-export default MyApp;
+export default wrapper.withRedux(MyApp);
