@@ -26,18 +26,7 @@
 @import "components/catalog/pets-filter";
 @import "components/catalog/product-list";
 @import "components/catalog/sort-by";
-@import "components/home/about-us";
-@import "components/home/banner";
-@import "components/home/benefits";
-@import "components/home/popular-products";
-@import "components/home/reviews";
 @import "components/reviews-item";
-@import "components/home/special-offer";
-@import "components/home/special-offer-item";
-@import "components/modal/auth";
-@import "components/modal/cart-item";
-@import "components/modal/cart-modal";
-@import "components/modal/modal-layout";
 @import "components/product/product-body";
 @import "components/product/add-review";
 @import "components/product/switch";
@@ -45,9 +34,6 @@
 @import "components/product/similar-products";
 @import "components/product/product-characteristics";
 @import "components/product-item";
-@import "components/checkout/checkout-container";
-@import "components/checkout/checkouts";
-@import "components/checkout/order";
 
 // Mobile styles for pages
 @import "pages/home-page";
@@ -71,18 +57,7 @@
 @import "media/catalog/pets-filter-media";
 @import "media/catalog/product-list-media";
 @import "media/catalog/sort-by-media";
-@import "media/home/about-us-media";
-@import "media/home/banner-media";
-@import "media/home/benefits-media";
-@import "media/home/popular-products-media";
 @import "media/reviews-item-media";
-@import "media/home/reviews-media";
-@import "media/home/special-offer-item-media";
-@import "media/home/special-offer-media";
-@import "media/modal/auth-media";
-@import "media/modal/cart-item-media";
-@import "media/modal/cart-modal-media";
-@import "media/modal/modal-layout-media";
 @import "media/product-item-media";
 
 html,

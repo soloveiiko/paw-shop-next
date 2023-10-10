@@ -1,7 +1,10 @@
 import { CategoryFilter, PetsFilter, ProductList, SortBy } from '@components';
-import { useState } from 'react';
-import { getProducts, useProductItemQuery } from '@services/catalogApi';
+import { useEffect, useState } from 'react';
+import { useProductItemQuery } from '@services/catalogApi';
 import { useRouter } from 'next/router';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectCatalog, setCatalog } from '@redux/catalog/catalogSlice';
+import { wrapper } from '@redux/store';
 
 const sortByList = [
   { id: '1', name: 'Default', sort: 'default', order: 'desc' },
@@ -10,25 +13,17 @@ const sortByList = [
   { id: '4', name: 'The most popular first', sort: 'rating', order: 'desc' },
 ];
 
-export const getServerSideProps = async (context) => {
-  const { data } = await getProducts();
-  const products = data.items;
-
-  return {
-    props: {
-      products,
-    },
-  };
-};
-function Catalog({ items }) {
+function Catalog({ data }) {
   const router = useRouter();
-  const slug = router.query.slug;
-  console.log(slug);
-  const [sortItem, setSortItem] = useState(sortByList[0].sort);
-  const [orderItem, setOrderItem] = useState(sortByList[0].order);
+  const catalog = useSelector(selectCatalog);
+  const dispatch = useDispatch();
 
-  const { data } = useProductItemQuery(slug);
-  console.log('productItem data', items);
+  useEffect(() => {
+    // Викликаємо setCatalog лише, якщо деякі дані доступні
+    if (data) {
+      dispatch(setCatalog(data));
+    }
+  }, [dispatch, data]);
 
   const handleSort = (sort, order) => {
     console.log('hello');
@@ -62,5 +57,20 @@ function Catalog({ items }) {
     </div>
   );
 }
+
+export const getServerSideProps = wrapper.getServerSideProps(
+  (store) => async (context) => {
+    const { slug } = context.params;
+    const { data } = await useProductItemQuery('cat');
+
+    store.dispatch(setCatalog(data));
+
+    return {
+      props: {
+        data,
+      },
+    };
+  }
+);
 
 export default Catalog;
