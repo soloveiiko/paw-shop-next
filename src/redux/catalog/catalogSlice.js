@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { HYDRATE } from 'next-redux-wrapper';
 
 const initialState = {
   catalog: null,
@@ -10,15 +9,6 @@ export const catalogSlice = createSlice({
   reducers: {
     setCatalog(state, action) {
       state.catalog = action.payload;
-    },
-  },
-  extraReducers: {
-    [HYDRATE]: (state, action) => {
-      if (!action.payload.catalog.catalog) {
-        return state;
-      }
-
-      state.catalog = action.payload.catalog.catalog;
     },
   },
 });

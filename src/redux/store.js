@@ -1,5 +1,4 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { setupListeners } from '@reduxjs/toolkit/query';
 import { catalogApi } from '@services/catalogApi';
 import { reviewApi } from '@services/reviewApi';
 import { subscribeApi } from '@services/subscribeApi';
@@ -8,6 +7,7 @@ import subscribeSlice from './subscribe/subscribeSlice';
 import catalogSlice from './catalog/catalogSlice';
 import process from 'next/dist/build/webpack/loaders/resolve-url-loader/lib/postcss';
 import { createWrapper } from 'next-redux-wrapper';
+
 const makeStore = () =>
   configureStore({
     reducer: {

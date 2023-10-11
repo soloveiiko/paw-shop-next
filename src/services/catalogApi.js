@@ -11,13 +11,22 @@ export const catalogApi = createApi({
     }
   },
   endpoints: (builder) => ({
-    products: builder.query({
+    getProducts: builder.query({
       query: () => `variations/`,
     }),
-    productItem: builder.query({
-      query: (slug) => `variations?category=${slug}`,
+    getProductByParams: builder.query({
+      query: (data) => {
+        return {
+          url: `variations/`,
+          method: `GET`,
+          params: data,
+        };
+      },
     }),
   }),
 });
-export const { useProductsQuery, useProductItemQuery } = catalogApi;
-export const { getProducts, getProductItem } = catalogApi.endpoints;
+export const {
+  useGetProductByParamsQuery,
+  util: { getRunningQueriesThunk },
+} = catalogApi;
+export const { getProducts, getProductByParams } = catalogApi.endpoints;
