@@ -24,7 +24,7 @@ function Catalog() {
   const itemsPerPage = 1;
   const [sortItem, setSortItem] = useState('default');
   const [orderItem, setOrderItem] = useState('desc');
-  const [, setCurrentPage] = useState(1);
+  const [, setCurrentPage] = useState(Number(page) || 1);
   const result = useGetProductByParamsQuery(
     typeof category === 'string'
       ? {
@@ -39,8 +39,7 @@ function Catalog() {
       skip: router.isFallback,
     }
   );
-  const { data, isLoading } = result;
-  console.log(data);
+  const { data, isLoading, isError, error } = result;
 
   useEffect(() => {
     setSortItem(sortByList[0].sort);
@@ -60,11 +59,10 @@ function Catalog() {
     const url = `/catalog/${category}?sort=${sortItem}&order=${orderItem}&page=${selectedPage}`;
     router.push(url);
   };
-  if (isLoading) {
-    return <Preloader />;
-  }
   return (
     <div className="page catalog-page">
+      {isLoading && <Preloader />}
+      {isError && <div className="error">{error}</div>}
       <h2>Catalog</h2>
       <section className="catalog-page__filters">
         <PetsFilter />
