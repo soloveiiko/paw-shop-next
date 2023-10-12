@@ -48,10 +48,9 @@ function InformationPanel() {
               <Link className="social-network__link" href={el.link}>
                 <Image
                   src={el.image}
-                  width="20"
-                  height="20"
                   priority
                   alt={el.name}
+                  style={{ height: 'auto' }}
                 />
               </Link>
             </li>

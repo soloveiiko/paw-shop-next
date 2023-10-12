@@ -19,10 +19,9 @@ function Tools({ toggleSidebar }) {
           <Image
             className="tools__image"
             src={icoBasket}
-            width="26"
-            height="26"
             alt="Cart"
             priority
+            style={{ height: 'auto' }}
           />
         </button>
         <div className="tools__basket-counter">0</div>

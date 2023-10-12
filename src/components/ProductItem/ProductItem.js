@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { icoBasket } from 'public/images';
-import Image from '@components/Base/Image/Image';
+import { defaultImage, icoBasket } from 'public/images';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
+import Image from 'next/image';
 
 const DynamicRating = dynamic(
   () => import('@components/Base/StarsRange/StarsRange'),
@@ -19,6 +19,9 @@ function ProductItem(props) {
   const handleAddToCart = async () => {
     console.log('added to cart');
   };
+  const imageLoader = ({ src }) => {
+    return src ? src : defaultImage;
+  };
   return (
     <div className="products-item">
       <div className="products-item__additions">
@@ -33,11 +36,13 @@ function ProductItem(props) {
         <div className="products-item__img-container">
           <Image
             className="products-item__image"
+            src={props.image}
             width="300"
             height="194"
-            src={props.image}
+            loader={imageLoader}
             loading="lazy"
             alt="Product"
+            unoptimized
           />
         </div>
       </Link>
@@ -68,13 +73,7 @@ function ProductItem(props) {
           <div className="products-item__in-basket-container in-basket">
             <button className="in-basket__btn" onClick={handleAddToCart}>
               +
-              <img
-                src={icoBasket}
-                width="20"
-                height="20"
-                loading="lazy"
-                alt="In Basket"
-              />
+              <Image src={icoBasket} width="20" height="20" alt="In Cart" />
             </button>
           </div>
         </div>

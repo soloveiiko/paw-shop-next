@@ -1,6 +1,7 @@
 import ProductItem from '@components/ProductItem/ProductItem';
 
 function ProductList({ currentItems }) {
+  console.log(currentItems);
   return (
     <div className="product-list">
       <div className="product-list__wrapper">
@@ -12,7 +13,7 @@ function ProductList({ currentItems }) {
             category={product.product.category.slug}
             isDiscount={product.prices.discount}
             discountPercent={product.discount_percent}
-            image={product.images[0].url}
+            image={product.images[0].conversions.big.url}
             name={product.product.name}
             rating={product.product.rating}
             commentsCount={product.product.comments_count}

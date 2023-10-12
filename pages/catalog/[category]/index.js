@@ -21,7 +21,6 @@ const sortByList = [
 function Catalog() {
   const router = useRouter();
   const { category, sort, order, page } = router.query;
-  const itemsPerPage = 1;
   const [sortItem, setSortItem] = useState('default');
   const [orderItem, setOrderItem] = useState('desc');
   const [, setCurrentPage] = useState(Number(page) || 1);
@@ -29,7 +28,7 @@ function Catalog() {
     typeof category === 'string'
       ? {
           page: page,
-          per_page: itemsPerPage,
+          per_page: 1,
           sort: sort,
           order: order,
           category: category,
