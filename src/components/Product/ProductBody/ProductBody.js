@@ -1,18 +1,32 @@
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Amount from '@components/Base/Amount/Amount';
-import StarsRange from '@components/Base/StarsRange/StarsRange';
-import { useDispatch } from 'react-redux';
-import ProductSlider from '@components/Product/ProductSlider/ProductSlider';
 import {
   facebookBlue,
   icoReturn,
   telegramBlue,
   twitterBlue,
 } from '@public/images';
+import Image from 'next/image';
+import dynamic from 'next/dynamic';
+const DynamicRating = dynamic(
+  () => import('@components/Base/StarsRange/StarsRange'),
+  {
+    ssr: false,
+  }
+);
+const DynamicSlider = dynamic(
+  () => import('@components/Product/ProductSlider/ProductSlider'),
+  {
+    ssr: false,
+  }
+);
+const ProductBody = ({ data, switching }) => {
+  const [isClient, setIsClient] = useState(false);
 
-const ProductBody = ({ data, switching, handleChooseVariation }) => {
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
   const [quantity, setQuantity] = useState(data.min_qty);
-  const [selectedProperties, setSelectedProperties] = useState({});
 
   const handleAddToCart = async () => {
     console.log('added to cart');
@@ -32,7 +46,7 @@ const ProductBody = ({ data, switching, handleChooseVariation }) => {
         <div className="product-body__top">
           {data.name && <h2>{data.name}</h2>}
           <div className="product-body__stars-range">
-            <StarsRange value={data.product.rating} />
+            {isClient && <DynamicRating value={data.product.rating} />}
             {data.product.comments_count && (
               <span className="product-body__stars-count">
                 {data.product.comments_count}
@@ -41,7 +55,8 @@ const ProductBody = ({ data, switching, handleChooseVariation }) => {
           </div>
           {data.sku && <div className="product-body__scu">SKU: {data.sku}</div>}
         </div>
-        <ProductSlider images={data.images} />
+        {isClient && <DynamicSlider images={data.images} />}
+        {/*<ProductSlider images={data.images} />*/}
         <div className="product-body__checkbox-list">
           <div className="product-body__form">
             {switching.map((el) => (
@@ -55,14 +70,8 @@ const ProductBody = ({ data, switching, handleChooseVariation }) => {
                 {el.properties.map((item) => (
                   <button
                     key={item.property.id}
-                    className={`product-body__checkbox-btn${
-                      selectedProperties[el.attribute.name]?.id ===
-                      item.property.id
-                        ? ' selected'
-                        : ''
-                    }`}
+                    className={`product-body__checkbox-btn`}
                     type="button"
-                    onClick={() => handleChooseVariation(el, item)}
                   >
                     {item.property.value}
                   </button>
@@ -104,7 +113,7 @@ const ProductBody = ({ data, switching, handleChooseVariation }) => {
             </div>
           </div>
           <div className="product-body__return">
-            <img
+            <Image
               className="product-body__return-img"
               src={icoReturn}
               alt="return"
@@ -119,7 +128,7 @@ const ProductBody = ({ data, switching, handleChooseVariation }) => {
             <span className="share__subtitle">Share:</span>
             <div className="share__list">
               <div className="share__item_telegram">
-                <img
+                <Image
                   className="share__image"
                   src={telegramBlue}
                   alt="Telegram"
@@ -128,7 +137,7 @@ const ProductBody = ({ data, switching, handleChooseVariation }) => {
                 />
               </div>
               <div className="share__item_facebook">
-                <img
+                <Image
                   className="share__image"
                   src={facebookBlue}
                   alt="Facebook"
@@ -137,7 +146,7 @@ const ProductBody = ({ data, switching, handleChooseVariation }) => {
                 />
               </div>
               <div className="share__item_twitter">
-                <img
+                <Image
                   className="share__image"
                   src={twitterBlue}
                   alt="Twitter"

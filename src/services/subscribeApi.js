@@ -7,7 +7,6 @@ export const subscribeApi = createApi({
   endpoints: (builder) => ({
     subscribe: builder.mutation({
       query(data) {
-        console.log('subscribe data', data);
         return {
           url: 'incomings',
           method: 'POST',

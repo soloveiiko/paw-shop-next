@@ -4,7 +4,7 @@ import AddImageField from '@components/Product/AddReview/AddImageField/AddImageF
 import { Rating } from 'react-simple-star-rating';
 import * as Yup from 'yup';
 
-const AddReview = ({ product }) => {
+function AddReview({ product }) {
   const [images, setImages] = useState([]);
   const [imageURLs, setImageURLs] = useState([]);
   const [rating, setRating] = useState(0);
@@ -67,6 +67,6 @@ const AddReview = ({ product }) => {
       </div>
     </div>
   );
-};
+}
 
 export default AddReview;

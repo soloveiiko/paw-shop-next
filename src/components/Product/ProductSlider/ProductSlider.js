@@ -18,6 +18,7 @@ const ProductSlider = ({ images }) => {
               alt="Product"
               width="471"
               height="471"
+              unoptimized
             />
           </swiper-slide>
         ))}

@@ -11,7 +11,7 @@ export const catalogApi = createApi({
     }
   },
   endpoints: (builder) => ({
-    getProductByParams: builder.query({
+    getProductsByParams: builder.query({
       query: (data) => {
         return {
           url: `variations/`,
@@ -20,10 +20,19 @@ export const catalogApi = createApi({
         };
       },
     }),
+    getProductItem: builder.query({
+      query: (data) => {
+        return {
+          url: `variation/${data}`,
+          method: `GET`,
+        };
+      },
+    }),
   }),
 });
 export const {
-  useGetProductByParamsQuery,
+  useGetProductsByParamsQuery,
+  useGetProductItemQuery,
   util: { getRunningQueriesThunk },
 } = catalogApi;
-export const { getProducts, getProductByParams } = catalogApi.endpoints;
+export const { getProductsByParams, getProductItem } = catalogApi.endpoints;

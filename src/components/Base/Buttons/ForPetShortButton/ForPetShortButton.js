@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { icoArrowLeft, icoArrowRight } from 'public/images';
+import { icoArrowLeft, icoArrowRight } from '@public/images';
+import Image from 'next/image';
 
 function ForPetShortButton({ isCat, isDog, className }) {
   return (
@@ -9,7 +10,7 @@ function ForPetShortButton({ isCat, isDog, className }) {
           href="/catalog/cat?sort=default&order=desc&page=1"
           className={`for-pets__btn cat-btn ${className}`}
         >
-          <img
+          <Image
             className="for-pets__arrow"
             src={icoArrowLeft}
             width="9.5"
@@ -30,7 +31,7 @@ function ForPetShortButton({ isCat, isDog, className }) {
           <span className="for-pets__text">
             For <b className="for-pets__marker dog">dog</b>
           </span>
-          <img
+          <Image
             className="for-pets__arrow"
             src={icoArrowRight}
             width="9.5"

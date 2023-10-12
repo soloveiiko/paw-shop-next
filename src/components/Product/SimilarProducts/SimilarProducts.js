@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import ProductContainer from '@components/Base/ProductContainer/ProductContainer';
-import { useGetProductByParamsQuery } from '@services/catalogApi';
+import { useGetProductsByParamsQuery } from '@services/catalogApi';
 
 const SimilarProducts = () => {
   const [randomProducts, setRandomProducts] = useState([]);
-  const { data } = useGetProductByParamsQuery({ per_page: 4, sort: 'random' });
+  const { data } = useGetProductsByParamsQuery({ per_page: 4, sort: 'random' });
   useEffect(() => {
     if (data) {
       setRandomProducts(data.data);

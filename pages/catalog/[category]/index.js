@@ -3,9 +3,9 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { skipToken } from '@reduxjs/toolkit/query';
 import {
-  getProductByParams,
+  getProductsByParams,
   getRunningQueriesThunk,
-  useGetProductByParamsQuery,
+  useGetProductsByParamsQuery,
 } from '@services/catalogApi';
 import Pagination from '@components/Base/Pagination/Pagination';
 import { wrapper } from '@redux/store';
@@ -24,7 +24,7 @@ function Catalog() {
   const [sortItem, setSortItem] = useState('default');
   const [orderItem, setOrderItem] = useState('desc');
   const [, setCurrentPage] = useState(Number(page) || 1);
-  const result = useGetProductByParamsQuery(
+  const result = useGetProductsByParamsQuery(
     typeof category === 'string'
       ? {
           page: page,
@@ -94,7 +94,7 @@ export const getServerSideProps = wrapper.getServerSideProps(
     const { category, sort, order, page } = context.query;
     if (category) {
       store.dispatch(
-        getProductByParams.initiate({
+        getProductsByParams.initiate({
           sort: sort,
           order: order,
           page: page,
