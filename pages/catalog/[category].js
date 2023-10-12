@@ -9,6 +9,7 @@ import {
 } from '@services/catalogApi';
 import Pagination from '@components/Base/Pagination/Pagination';
 import { wrapper } from '@redux/store';
+import Preloader from '@components/Base/Preloader/Preloader';
 
 const sortByList = [
   { id: '1', name: 'Default', sort: 'default', order: 'desc' },
@@ -19,15 +20,11 @@ const sortByList = [
 
 function Catalog() {
   const router = useRouter();
-  const test = JSON.parse(JSON.stringify(router.query));
-  console.log(test);
-  const { category, sort, order, page } = JSON.parse(
-    JSON.stringify(router.query)
-  );
+  const { category, sort, order, page } = router.query;
   const itemsPerPage = 1;
-  const [sortItem, setSortItem] = useState(sortByList[0].sort);
-  const [orderItem, setOrderItem] = useState(sortByList[0].order);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [sortItem, setSortItem] = useState('default');
+  const [orderItem, setOrderItem] = useState('desc');
+  const [, setCurrentPage] = useState(1);
   const result = useGetProductByParamsQuery(
     typeof category === 'string'
       ? {
@@ -63,6 +60,9 @@ function Catalog() {
     const url = `/catalog/${category}?sort=${sortItem}&order=${orderItem}&page=${selectedPage}`;
     router.push(url);
   };
+  if (isLoading) {
+    return <Preloader />;
+  }
   return (
     <div className="page catalog-page">
       <h2>Catalog</h2>
@@ -95,9 +95,7 @@ function Catalog() {
 export const getServerSideProps = wrapper.getServerSideProps(
   (store) => async (context) => {
     const { category, sort, order, page } = context.query;
-
     if (category) {
-      console.log('asdfsdfsd');
       store.dispatch(
         getProductByParams.initiate({
           sort: sort,

@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { icoBasket } from 'public/images';
-import StarsRange from '@components/Base/StarsRange/StarsRange';
 import Image from '@components/Base/Image/Image';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 
+const DynamicRating = dynamic(
+  () => import('@components/Base/StarsRange/StarsRange'),
+  {
+    ssr: false,
+  }
+);
 function ProductItem(props) {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
   const handleAddToCart = async () => {
     console.log('added to cart');
   };
@@ -38,7 +49,7 @@ function ProductItem(props) {
           {props.name}
         </Link>
         <div className="products-item__stars-container stars-range">
-          <StarsRange value={props.rating} />
+          {isClient && <DynamicRating value={props.rating} />}
           <div className="products-item__reviews">{props.commentsCount}</div>
         </div>
         <div className="products-item__price-container">

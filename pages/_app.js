@@ -2,11 +2,10 @@ import Layout from '../components/layout';
 import '@assets/styles/scss/index.scss';
 import { wrapper } from '@redux/store';
 
-function MyApp({ Component, ...rest }) {
-  const { store, props } = wrapper.useWrappedStore(rest);
+function MyApp({ Component, pageProps }) {
   return (
     <Layout>
-      <Component {...props} />
+      <Component {...pageProps} />
     </Layout>
   );
 }
