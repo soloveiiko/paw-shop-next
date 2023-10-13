@@ -32,56 +32,6 @@
     gap: 25rem;
   }
 
-  &__images {
-    display: flex;
-    flex-direction: row-reverse;
-    width: 45%;
-    gap: 15rem;
-  }
-
-  &__slider {
-    overflow: hidden;
-    width: calc(75% - 7.5rem);
-    height: 400rem;
-  }
-
-  &__slider-item {
-    width: 471rem;
-  }
-
-  &__slider-img {
-    height: 400rem;
-  }
-
-  &__slider-img, &__trumbs-img {
-    object-fit: contain;
-  }
-
-  .swiper-slide-thumb-active {
-    img {
-      border: 1rem solid $accent;
-      border-radius: 20rem;
-    }
-  }
-
-  &__slider-trumbs {
-    overflow-y: scroll;
-    width: calc(25% - 7.5rem);
-    height: 470rem;
-
-    swiper-slide {
-      width: 125rem;
-    }
-  }
-
-  &__trumbs-item {
-    width: 20rem;
-  }
-
-  &__trumbs-img {
-    height: auto;
-  }
-
   &__checkbox-list {
     display: flex;
     flex-direction: column;
@@ -144,11 +94,8 @@
     &.selected {
       @include accent-btn;
     }
-
   }
 
-  &__buy-btn {
-  }
 
   &__return {
     display: flex;
@@ -161,15 +108,43 @@
     height: 30rem;
   }
 
-  &__return-text {
+  &__images {
+    display: flex;
+    overflow: hidden;
+    flex-direction: row-reverse;
+    width: 45%;
+    gap: 15rem;
   }
 
-  &__share {
+  .keen-slider {
+    display: flex;
 
+    &.thumbnail {
+      width: 25%;
+      &:not([data-keen-slider-disabled]) .keen-slider__slide {
+        width: 80rem;
+        height: 80rem;
+        min-height: 80rem !important;
+        padding: 5rem;
+      }
+    }
+
+    &__slide {
+
+      &.active {
+        border: 1rem solid $accent;
+        border-radius: 20rem;
+      }
+    }
+
+    &__trumbs-img,&__img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
   }
-}
 
-.container {
+
 }
 
 .share {

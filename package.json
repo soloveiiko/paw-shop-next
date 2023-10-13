@@ -12,6 +12,7 @@
     "@reduxjs/toolkit": "^1.9.6",
     "abort-controller": "^3.0.0",
     "formik": "^2.4.4",
+    "keen-slider": "^6.8.6",
     "next": "13.5.4",
     "next-redux-wrapper": "^8.1.0",
     "node-fetch": "^3.3.2",

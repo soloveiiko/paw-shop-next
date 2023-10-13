@@ -1,47 +1,88 @@
-import { register } from 'swiper/element';
 import Image from 'next/image';
+import 'keen-slider/keen-slider.min.css';
+import { useKeenSlider } from 'keen-slider/react';
+
+function ThumbnailPlugin(mainRef) {
+  return (slider) => {
+    function removeActive() {
+      slider.slides.forEach((slide) => {
+        slide.classList.remove('active');
+      });
+    }
+    function addActive(idx) {
+      slider.slides[idx].classList.add('active');
+    }
+
+    function addClickEvents() {
+      slider.slides.forEach((slide, idx) => {
+        slide.addEventListener('click', () => {
+          if (mainRef.current) mainRef.current.moveToIdx(idx);
+        });
+      });
+    }
+
+    slider.on('created', () => {
+      if (!mainRef.current) return;
+      addActive(slider.track.details.rel);
+      addClickEvents();
+      mainRef.current.on('animationStarted', (main) => {
+        removeActive();
+        const next = main.animator.targetIdx || 0;
+        addActive(main.track.absToRel(next));
+        slider.moveToIdx(Math.min(slider.track.details.maxIdx, next));
+      });
+    });
+  };
+}
 
 const ProductSlider = ({ images }) => {
-  register();
+  console.log(images);
+  const [sliderRef, instanceRef] = useKeenSlider({
+    initial: 0,
+    slides: {
+      perView: 1,
+    },
+  });
+  const [thumbnailRef] = useKeenSlider(
+    {
+      initial: 0,
+      slides: {
+        perView: 5,
+        spacing: 10,
+      },
+      vertical: true,
+    },
+    [ThumbnailPlugin(instanceRef)]
+  );
   return (
     <div className="product-body__images">
-      <swiper-container
-        class="product-body__slider"
-        slides-per-view={1}
-        thumbs-swiper=".product-body__slider-trumbs"
-      >
+      <div ref={sliderRef} className="keen-slider">
         {images.map((img) => (
-          <swiper-slide key={img.id} className="product-body__slider-item">
+          <div key={img.id} className="keen-slider__slide">
             <Image
-              className="product-body__slider-img"
-              src={img.conversions.big.url}
+              className="keen-slider__img"
+              src={img.conversions.preview.url}
               alt="Product"
               width="471"
               height="471"
-              unoptimized
             />
-          </swiper-slide>
+          </div>
         ))}
-      </swiper-container>
-      <swiper-container
-        class="product-body__slider-trumbs"
-        direction="vertical"
-        slides-per-view={4}
-        free-mode="true"
-        watch-slides-progress={true}
-      >
+      </div>
+
+      <div ref={thumbnailRef} className="keen-slider thumbnail">
         {images.map((img) => (
-          <swiper-slide key={img.id} className="product-body__trumbs-item">
+          <div key={img.id} className="keen-slider__slide">
             <Image
-              className="product-body__trumbs-img"
+              className="keen-slider__trumbs-img"
               src={img.conversions.thumb.url}
               alt="Product"
               width="83"
               height="83"
             />
-          </swiper-slide>
+          </div>
         ))}
-      </swiper-container>
+      </div>
     </div>
   );
 };
