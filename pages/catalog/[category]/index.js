@@ -10,6 +10,7 @@ import {
 import Pagination from '@components/Base/Pagination/Pagination';
 import { wrapper } from '@redux/store';
 import Preloader from '@components/Base/Preloader/Preloader';
+import Head from 'next/head';
 
 const sortByList = [
   { id: '1', name: 'Default', sort: 'default', order: 'desc' },
@@ -39,6 +40,7 @@ function Catalog() {
     }
   );
   const { data, isLoading, isError, error } = result;
+  console.log('result', data);
 
   useEffect(() => {
     setSortItem(sortByList[0].sort);
@@ -60,6 +62,14 @@ function Catalog() {
   };
   return (
     <div className="page catalog-page">
+      {data && data.seo && (
+        <Head>
+          <title>{data.seo.title}</title>
+          {Object.keys(data.seo).map((el, index) => (
+            <meta key={index} property={el} content={data.seo[el]} />
+          ))}
+        </Head>
+      )}
       {isLoading && <Preloader />}
       {isError && <div className="error">{error}</div>}
       <h2>Catalog</h2>

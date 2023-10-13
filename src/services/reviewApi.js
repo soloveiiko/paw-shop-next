@@ -20,7 +20,7 @@ export const reviewApi = createApi({
         };
       },
     }),
-    productReviews: builder.query({
+    getProductReviews: builder.query({
       query({ data, id }) {
         return {
           url: `comments/products/${id}`,
@@ -41,7 +41,7 @@ export const reviewApi = createApi({
   }),
 });
 export const {
-  useReviewsQuery,
-  useLazyProductReviewsQuery,
-  useAddReviewsMutation,
+  useGetProductReviewsQuery,
+  util: { getRunningQueriesThunk },
 } = reviewApi;
+export const { getProductReviews } = reviewApi.endpoints;

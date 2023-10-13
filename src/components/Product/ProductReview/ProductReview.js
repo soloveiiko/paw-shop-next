@@ -1,20 +1,33 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import ReviewsItem from '@components/ReviewsItem/ReviewsItem';
 import Pagination from '@components/Base/Pagination/Pagination';
 import Preloader from '@components/Base/Preloader/Preloader';
 import StarsRange from '@components/Base/StarsRange/StarsRange';
-import { useLazyProductReviewsQuery } from '@services/reviewApi';
+import {
+  getProductReviews,
+  getRunningQueriesThunk,
+  useGetProductReviewsQuery,
+} from '@services/reviewApi';
+import { wrapper } from '@redux/store';
+import { getProductItem } from '@services/catalogApi';
+
 const ProductReview = ({ productId }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 3;
-  const [getReviewItem, { data }] = useLazyProductReviewsQuery();
-
-  useEffect(() => {
-    getReviewItem({
-      id: productId,
-      data: { page: currentPage, per_page: itemsPerPage },
-    });
-  }, [data, productId, currentPage]);
+  const { data } = useGetProductReviewsQuery({
+    id: productId,
+    data: {
+      page: currentPage,
+      per_page: itemsPerPage,
+    },
+  });
+  console.log('review data', data);
+  // useEffect(() => {
+  //   getReviewItem({
+  //     id: productId,
+  //     data: { page: currentPage, per_page: itemsPerPage },
+  //   });
+  // }, [data, productId, currentPage]);
 
   if (!data || !data.data) {
     return <Preloader />;
@@ -22,7 +35,6 @@ const ProductReview = ({ productId }) => {
   const handlePagination = (selectedPage) => {
     setCurrentPage(selectedPage);
   };
-  console.log('review data', data);
   return (
     <div className="product-review">
       <div className="container product-review__container">
@@ -58,5 +70,23 @@ const ProductReview = ({ productId }) => {
     </div>
   );
 };
+export const getServerSideProps = wrapper.getServerSideProps(
+  (store) => async (context) => {
+    const { productSlug: slug } = context.query;
 
+    const productResponse = await store.dispatch(getProductItem.initiate(slug));
+    const productId = productResponse.data?.id;
+    // Fetch product reviews data
+    await store.dispatch(getProductReviews.initiate({ id: productId }));
+
+    // Make sure all queries are completed before rendering the page
+    await Promise.all(store.dispatch(getRunningQueriesThunk()));
+
+    return {
+      props: {
+        productId,
+      },
+    };
+  }
+);
 export default ProductReview;

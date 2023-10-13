@@ -5,9 +5,10 @@ import {
   useGetProductItemQuery,
 } from '@services/catalogApi';
 import { skipToken } from '@reduxjs/toolkit/query';
-import { ProductBody } from '@components';
+import { ProductBody, Switch } from '@components';
 import Preloader from '@components/Base/Preloader/Preloader';
 import { wrapper } from '@redux/store';
+import Head from 'next/head';
 
 function Product() {
   const router = useRouter();
@@ -23,19 +24,22 @@ function Product() {
   console.log('data', data);
   return (
     <div className="page product-page">
+      {data && data.seo && (
+        <Head>
+          <title>{data.seo.title}</title>
+          {Object.keys(data.seo).map((el, index) => (
+            <meta key={index} property={el} content={data.seo[el]} />
+          ))}
+        </Head>
+      )}
       {isLoading && <Preloader />}
       {isError && (
         <div className="error">{error.message || 'An error occurred'}</div>
       )}
       {data && data.data && (
-        <ProductBody
-          data={data.data}
-          switching={data.switching}
-          // selectedVariation={selectedVariation}
-          // handleChooseVariation={handleChooseVariation}
-        />
+        <ProductBody data={data.data} switching={data.switching} />
       )}
-      {/*<Switch product={data.data} />*/}
+      <Switch product={data.data} />
       {/*<SimilarProducts />*/}
     </div>
   );

@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
 import { icoAddImage } from '@public/images';
+import Image from 'next/image';
 
 function AddImageField({ images, setImages, imageURLs, setImageURLs }) {
   // const [images, setImages] = useState([]);
@@ -31,7 +32,7 @@ function AddImageField({ images, setImages, imageURLs, setImageURLs }) {
           {imageURLs.map((image, index) => (
             <div key={index} className="images-field__item">
               <div className="images-field__img-container">
-                <img src={image} alt="Upload file" />
+                <Image src={image} alt="Upload file" />
               </div>
               <AiOutlineClose onClick={(e) => cancelImage(index, e)} />
             </div>
@@ -40,7 +41,7 @@ function AddImageField({ images, setImages, imageURLs, setImageURLs }) {
       )}
       <label className="images-field__label">
         <span className="images-field__icon">
-          <img src={icoAddImage} alt="Add" />
+          <Image src={icoAddImage} alt="Add" />
         </span>
         <span className="images-field__text">Choose images</span>
         <input
