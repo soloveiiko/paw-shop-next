@@ -12,15 +12,15 @@ function ProductReview({ comments }) {
     <div className="product-review">
       <div className="container product-review__container">
         <div className="product-review__stars-range">
-          <StarsRange value={parseFloat(comments.total.avg)} size="40" />
+          <StarsRange value={parseFloat(comments.data.total.avg)} size="40" />
           <div className="product-review__range">
-            {typeof comments.total.avg === 'string'
-              ? parseFloat(comments.total.avg).toFixed(1)
-              : comments.total.avg.toFixed(1)}
+            {typeof comments.data.total.avg === 'string'
+              ? parseFloat(comments.data.total.avg).toFixed(1)
+              : comments.data.total.avg.toFixed(1)}
           </div>
         </div>
         <div className="product-review__list">
-          {comments.data.map((review) => (
+          {comments.data.data.map((review) => (
             <ReviewsItem
               key={review.id}
               date={review.created_at}
@@ -32,10 +32,10 @@ function ProductReview({ comments }) {
             />
           ))}
         </div>
-        {comments.meta.last_page > 1 && (
+        {comments.data.meta.last_page > 1 && (
           <Pagination
-            pageCount={comments.meta.last_page}
-            forcePage={comments.meta.current_page}
+            pageCount={comments.data.meta.last_page}
+            forcePage={comments.data.meta.current_page}
             onPageChange={handlePagination}
           />
         )}

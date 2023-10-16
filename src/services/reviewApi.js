@@ -21,7 +21,7 @@ export const reviewApi = createApi({
       },
     }),
     getProductReviews: builder.query({
-      query({ data, id }) {
+      query({ id, data }) {
         return {
           url: `comments/products/${id}`,
           method: 'GET',
