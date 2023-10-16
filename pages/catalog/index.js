@@ -1,7 +1,6 @@
 import { CategoryFilter, PetsFilter, ProductList, SortBy } from '@components';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { skipToken } from '@reduxjs/toolkit/query';
 import {
   getProductsByParams,
   getRunningQueriesThunk,
@@ -26,20 +25,7 @@ function Catalog() {
   const [sortItem, setSortItem] = useState('default');
   const [orderItem, setOrderItem] = useState('desc');
   const [, setCurrentPage] = useState(Number(page) || 1);
-  const result = useGetProductsByParamsQuery(
-    typeof category === 'string'
-      ? {
-          sort: sort || 'default',
-          order: order || 'desc',
-          page: page || 1,
-          per_page: 1,
-          category: category || 'cat',
-        }
-      : skipToken,
-    {
-      skip: router.isFallback,
-    }
-  );
+  const result = useGetProductsByParamsQuery({ per_page: 2, page: page });
   const { data, isLoading, isError, error } = result;
   console.log('result', data);
 

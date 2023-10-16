@@ -11,6 +11,7 @@ import {
 } from '@services/reviewApi';
 import Preloader from '@components/Base/Preloader/Preloader';
 import { useState } from 'react';
+import Breadcrumbs from '@components/Base/Breadcrumbs/Breadcrumbs';
 
 async function fetchProductId(slug) {
   const response = await fetch(
@@ -68,6 +69,7 @@ function Product() {
       {isError && (
         <div className="error">{error.message || 'An error occurred'}</div>
       )}
+      <Breadcrumbs item={data.data.name} />
       {data && data.data && (
         <ProductBody data={data.data} switching={data.switching} />
       )}
