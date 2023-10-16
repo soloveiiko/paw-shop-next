@@ -3,7 +3,7 @@ import AddReview from '@components/Product/AddReview/AddReview';
 import ProductCharacteristics from '@components/Product/ProductCharacteristics/ProductCharacteristics';
 import ProductReview from '@components/Product/ProductReview/ProductReview';
 
-const Switch = ({ product, comments }) => {
+const Switch = ({ product, comments, handlePagination }) => {
   const [activeTab, setActiveTab] = useState('description');
 
   const handleTabClick = (tabName) => {
@@ -42,7 +42,12 @@ const Switch = ({ product, comments }) => {
         {activeTab === 'description' && (
           <ProductCharacteristics description={product.body} />
         )}
-        {activeTab === 'reviews' && <ProductReview comments={comments} />}
+        {activeTab === 'reviews' && (
+          <ProductReview
+            comments={comments}
+            handlePagination={handlePagination}
+          />
+        )}
         {activeTab === 'addReview' && <AddReview product={product} />}
       </div>
     </section>

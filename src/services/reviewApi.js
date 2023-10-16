@@ -21,11 +21,11 @@ export const reviewApi = createApi({
       },
     }),
     getProductReviews: builder.query({
-      query({ id, data }) {
+      query({ id, params }) {
         return {
           url: `comments/products/${id}`,
           method: 'GET',
-          params: data,
+          params: params,
         };
       },
     }),

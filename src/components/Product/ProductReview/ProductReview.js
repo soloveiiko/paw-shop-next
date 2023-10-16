@@ -1,13 +1,8 @@
 import StarsRange from '@components/Base/StarsRange/StarsRange';
 import ReviewsItem from '@components/ReviewsItem/ReviewsItem';
 import Pagination from '@components/Base/Pagination/Pagination';
-import { useState } from 'react';
 
-function ProductReview({ comments }) {
-  const [currentPage, setCurrentPage] = useState(1);
-  const handlePagination = (selectedPage) => {
-    setCurrentPage(selectedPage);
-  };
+function ProductReview({ comments, handlePagination }) {
   return (
     <div className="product-review">
       <div className="container product-review__container">

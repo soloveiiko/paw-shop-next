@@ -10,6 +10,7 @@ import {
   useGetProductReviewsQuery,
 } from '@services/reviewApi';
 import Preloader from '@components/Base/Preloader/Preloader';
+import { useState } from 'react';
 
 async function fetchProductId(slug) {
   const response = await fetch(
@@ -26,10 +27,11 @@ async function fetchProductId(slug) {
   const data = await response.json();
   return data.data.product.id;
 }
-function Product(props) {
-  console.log('data props', props);
+function Product() {
+  const [currentPage, setCurrentPage] = useState(1);
   const router = useRouter();
   const { productSlug } = router.query;
+
   const productResult = useGetProductItemQuery(
     typeof productSlug === 'string' ? productSlug : skipToken,
     {
@@ -37,14 +39,20 @@ function Product(props) {
     }
   );
   const { data, isLoading, isError, error } = productResult;
-  console.log('data product', productResult);
+
   const productId = productResult.data.data.product.id;
   const commentsResult = useGetProductReviewsQuery(
-    { id: typeof productId === 'string' ? productId : skipToken },
+    {
+      id: typeof productId === 'string' ? productId : skipToken,
+      params: { page: currentPage, per_page: 3 },
+    },
     {
       skip: router.isFallback,
     }
   );
+  const handlePagination = (selectedPage) => {
+    setCurrentPage(selectedPage);
+  };
 
   return (
     <div className="page product-page">
@@ -64,7 +72,11 @@ function Product(props) {
         <ProductBody data={data.data} switching={data.switching} />
       )}
       {data && data.data && (
-        <Switch product={data.data} comments={commentsResult} />
+        <Switch
+          product={data.data}
+          comments={commentsResult}
+          handlePagination={handlePagination}
+        />
       )}
       <SimilarProducts />
     </div>
@@ -78,11 +90,15 @@ export const getServerSideProps = wrapper.getServerSideProps(
     }
     const productId = await fetchProductId(productSlug);
     if (productId) {
-      store.dispatch(getProductReviews.initiate({ id: productId }));
+      store.dispatch(
+        getProductReviews.initiate({
+          id: productId,
+        })
+      );
     }
     await Promise.all(store.dispatch(getRunningQueriesThunk()));
     return {
-      props: { productId },
+      props: {},
     };
   }
 );
