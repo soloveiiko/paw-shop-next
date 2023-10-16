@@ -1,4 +1,4 @@
-import { ProductBody, Switch } from '@components';
+import { ProductBody, SimilarProducts, Switch } from '@components';
 import Head from 'next/head';
 import { getProductItem, useGetProductItemQuery } from '@services/catalogApi';
 import { wrapper } from '@redux/store';
@@ -24,14 +24,12 @@ async function fetchProductId(slug) {
     }
   );
   const data = await response.json();
-  console.log('response data', data.data.product.id);
   return data.data.product.id;
 }
 function Product(props) {
   console.log('data props', props);
   const router = useRouter();
   const { productSlug } = router.query;
-  // console.log('data props', props.allData.product);
   const productResult = useGetProductItemQuery(
     typeof productSlug === 'string' ? productSlug : skipToken,
     {
@@ -47,8 +45,6 @@ function Product(props) {
       skip: router.isFallback,
     }
   );
-  // const { data, isLoading, isError, error } = commentsResult;
-  console.log('data comments', commentsResult);
 
   return (
     <div className="page product-page">
@@ -70,7 +66,7 @@ function Product(props) {
       {data && data.data && (
         <Switch product={data.data} comments={commentsResult} />
       )}
-      {/*<SimilarProducts />*/}
+      <SimilarProducts />
     </div>
   );
 }
@@ -90,6 +86,8 @@ export const getServerSideProps = wrapper.getServerSideProps(
     };
   }
 );
+
+// Solution for fetch request
 // export async function getServerSideProps(context) {
 //   const { productSlug } = context.query;
 //   const productResponse = await fetch(
