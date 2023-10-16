@@ -1,12 +1,16 @@
 import ForPetShortButton from '@components/Base/Buttons/ForPetShortButton/ForPetShortButton';
-import { useGetPageQuery } from '@services/pagesApi';
+import {
+  getPage,
+  getRunningQueriesThunk,
+  useGetPageQuery,
+} from '@services/pagesApi';
 import Head from 'next/head';
 import Preloader from '@components/Base/Preloader/Preloader';
+import { wrapper } from '@redux/store';
 
 function Home() {
   const { data, isLoading, isError, error } = useGetPageQuery('home');
 
-  console.log('home data', data);
   return (
     <div className="page home-page">
       {isLoading && <Preloader />}
@@ -24,5 +28,16 @@ function Home() {
     </div>
   );
 }
-
 export default Home;
+export const getServerSideProps = wrapper.getServerSideProps(
+  (store) => async (context) => {
+    if (context) {
+      store.dispatch(getPage.initiate('home'));
+    }
+
+    await Promise.all(store.dispatch(getRunningQueriesThunk()));
+    return {
+      props: {},
+    };
+  }
+);

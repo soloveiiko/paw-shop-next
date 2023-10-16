@@ -3,13 +3,9 @@ import ReviewsItem from '@components/ReviewsItem/ReviewsItem';
 import Pagination from '@components/Base/Pagination/Pagination';
 import Preloader from '@components/Base/Preloader/Preloader';
 import StarsRange from '@components/Base/StarsRange/StarsRange';
-import {
-  getProductReviews,
-  getRunningQueriesThunk,
-  useGetProductReviewsQuery,
-} from '@services/reviewApi';
-import { wrapper } from '@redux/store';
-import { getProductItem } from '@services/catalogApi';
+import { useGetProductReviewsQuery } from '@services/reviewApi';
+// @ts-nocheck
+import { GetServerSideComponentProps } from '@sitecore-jss/sitecore-jss-nextjs';
 
 const ProductReview = ({ productId }) => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -70,23 +66,14 @@ const ProductReview = ({ productId }) => {
     </div>
   );
 };
-export const getServerSideProps = wrapper.getServerSideProps(
-  (store) => async (context) => {
-    const { productSlug: slug } = context.query;
-
-    const productResponse = await store.dispatch(getProductItem.initiate(slug));
-    const productId = productResponse.data?.id;
-    // Fetch product reviews data
-    await store.dispatch(getProductReviews.initiate({ id: productId }));
-
-    // Make sure all queries are completed before rendering the page
-    await Promise.all(store.dispatch(getRunningQueriesThunk()));
-
-    return {
-      props: {
-        productId,
-      },
-    };
-  }
-);
+// @ts-ignore
+export const getServerSideProps = async (context) => {
+  const { slug } = context.params;
+  const productId = '12345';
+  return {
+    props: {
+      productId,
+    },
+  };
+};
 export default ProductReview;
