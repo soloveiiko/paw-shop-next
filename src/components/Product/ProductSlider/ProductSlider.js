@@ -36,7 +36,6 @@ function ThumbnailPlugin(mainRef) {
 }
 
 const ProductSlider = ({ images }) => {
-  console.log(images);
   const [sliderRef, instanceRef] = useKeenSlider({
     initial: 0,
     slides: {
