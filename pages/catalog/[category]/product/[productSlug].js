@@ -13,7 +13,13 @@ import {
 } from '@services/reviewApi';
 import { skipToken } from '@reduxjs/toolkit/query';
 import Head from 'next/head';
-import { ProductBody, SimilarProducts, Switch } from '@components';
+import {
+  Breadcrumbs,
+  Preloader,
+  ProductBody,
+  SimilarProducts,
+  Switch,
+} from '@components';
 
 async function fetchProductId(slug) {
   const response = await fetch(

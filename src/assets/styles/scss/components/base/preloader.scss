@@ -1,3 +1,20 @@
 .preloader {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   font-size: $simple-text-size-mobile;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: $white;
+  opacity: 0.9;
+  z-index: 1000;
+
+  &__image {
+    width: 100rem;
+    height: 100rem;
+  }
 }

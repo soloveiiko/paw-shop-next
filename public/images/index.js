@@ -50,8 +50,10 @@ import review from './reviews/review.webp';
 import spCart from './special-offers/cart.webp';
 // Default
 import defaultImage from './default.webp';
+import preloader from './Spinner-3.gif';
 
 export {
+  preloader,
   logoDark,
   logoWhite,
   bgCat,
