@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { wrapper } from '@redux/store';
 import {
@@ -6,6 +5,7 @@ import {
   getRunningQueriesThunk,
   useGetProductsByParamsQuery,
 } from '@services/catalogApi';
+import Head from 'next/head';
 import {
   Breadcrumbs,
   CategoryFilter,

@@ -1,21 +1,19 @@
-import { ProductBody, SimilarProducts, Switch } from '@components';
-import Head from 'next/head';
+import { useState } from 'react';
+import { useRouter } from 'next/router';
+import { wrapper } from '@redux/store';
 import {
   getProductItem,
   useGetProductItemQuery,
   getRunningQueriesThunk,
 } from '@services/catalogApi';
-import { wrapper } from '@redux/store';
-import { useRouter } from 'next/router';
-import { skipToken } from '@reduxjs/toolkit/query';
 import {
   getProductReviews,
   getCommentRunningQueriesThunk,
   useGetProductReviewsQuery,
 } from '@services/reviewApi';
-import Preloader from '@components/Base/Preloader/Preloader';
-import { useState } from 'react';
-import Breadcrumbs from '@components/Base/Breadcrumbs/Breadcrumbs';
+import { skipToken } from '@reduxjs/toolkit/query';
+import Head from 'next/head';
+import { ProductBody, SimilarProducts, Switch } from '@components';
 
 async function fetchProductId(slug) {
   const response = await fetch(

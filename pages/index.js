@@ -1,12 +1,12 @@
-import ForPetShortButton from '@components/Base/Buttons/ForPetShortButton/ForPetShortButton';
+import { wrapper } from '@redux/store';
 import {
   getPage,
   getRunningQueriesThunk,
   useGetPageQuery,
 } from '@services/pagesApi';
 import Head from 'next/head';
-import Preloader from '@components/Base/Preloader/Preloader';
-import { wrapper } from '@redux/store';
+import { Preloader } from '@components';
+import ForPetShortButton from '@components/Base/Buttons/ForPetShortButton/ForPetShortButton';
 
 function Home() {
   const { data, isLoading, isError, error } = useGetPageQuery('home');

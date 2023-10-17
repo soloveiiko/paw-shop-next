@@ -1,17 +1,22 @@
-import { CategoryFilter, PetsFilter, ProductList, SortBy } from '@components';
-import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { skipToken } from '@reduxjs/toolkit/query';
+import { useRouter } from 'next/router';
+import { wrapper } from '@redux/store';
 import {
   getProductsByParams,
   getRunningQueriesThunk,
   useGetProductsByParamsQuery,
 } from '@services/catalogApi';
-import Pagination from '@components/Base/Pagination/Pagination';
-import { wrapper } from '@redux/store';
-import Preloader from '@components/Base/Preloader/Preloader';
+import { skipToken } from '@reduxjs/toolkit/query';
 import Head from 'next/head';
-import Breadcrumbs from '@components/Base/Breadcrumbs/Breadcrumbs';
+import {
+  Breadcrumbs,
+  CategoryFilter,
+  Pagination,
+  PetsFilter,
+  Preloader,
+  ProductList,
+  SortBy,
+} from '@components';
 
 const sortByList = [
   { id: '1', name: 'Default', sort: 'default', order: 'desc' },
