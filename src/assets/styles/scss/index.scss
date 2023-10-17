@@ -70,7 +70,6 @@ body {
   color: $black;
   background-color: $white;
 }
-
 html {
   box-sizing: border-box;
 }
@@ -84,6 +83,22 @@ html {
   min-height: 100vh;
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr auto;
+}
+
+.error-page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20rem;
+  align-items: center;
+  &__status-code {
+    font-size: 100rem;
+    font-weight: 700;
+  }
+  &__message {
+    font-size: 30rem;
+  }
 }
 
 .content {

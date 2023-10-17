@@ -20,7 +20,7 @@ import {
   SimilarProducts,
   Switch,
 } from '@components';
-import Error from 'next/error';
+import Error from '@pages/_error';
 
 async function fetchProductId(slug) {
   try {
@@ -59,8 +59,8 @@ function Product() {
     }
   );
   const { data, isLoading, isError, error } = productResult;
-  if (error.status === 500) {
-    return <Error statusCode={500} />;
+  if (error) {
+    return <Error statusCode={error.status} message={error.data.message} />;
   }
 
   const productId = data?.data.product.id;

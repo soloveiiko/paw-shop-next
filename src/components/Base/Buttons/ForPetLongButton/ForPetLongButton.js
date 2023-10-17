@@ -5,10 +5,7 @@ function ForPetLongButton({ isCat, isDog }) {
   return (
     <div className="product-for-pets-btn-container product-for-pets">
       {isCat && (
-        <Link
-          href="/catalog/cat?sort=default&order=desc&page=1"
-          className="product-for-pets__btn cat-btn"
-        >
+        <Link href="/catalog/cat" className="product-for-pets__btn cat-btn">
           <span className="product-for-pets__text">
             Products for <b className="product-for-pets__marker cat">cat</b>
           </span>
@@ -31,10 +28,7 @@ function ForPetLongButton({ isCat, isDog }) {
         </Link>
       )}
       {isDog && (
-        <Link
-          href="/catalog/dog?sort=default&order=desc&page=1"
-          className="product-for-pets__btn dog-btn"
-        >
+        <Link href="/catalog/dog" className="product-for-pets__btn dog-btn">
           <span className="product-for-pets__text">
             Products for <b className="product-for-pets__marker dog">dog</b>
           </span>

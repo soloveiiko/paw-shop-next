@@ -7,7 +7,7 @@ function ForPetShortButton({ isCat, isDog, className }) {
     <div className="for-pets-btn-container for-pets">
       {isCat && (
         <Link
-          href="/catalog/cat?sort=default&order=desc&page=1"
+          href="/catalog/cat"
           className={`for-pets__btn cat-btn ${className}`}
         >
           <Image
@@ -25,7 +25,7 @@ function ForPetShortButton({ isCat, isDog, className }) {
       )}
       {isDog && (
         <Link
-          href="/catalog/dog?sort=default&order=desc&page=1"
+          href="/catalog/dog"
           className={`for-pets__btn dog-btn ${className}`}
         >
           <span className="for-pets__text">

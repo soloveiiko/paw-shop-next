@@ -15,7 +15,7 @@ import {
   ProductList,
   SortBy,
 } from '@components';
-import Error from 'next/error';
+import Error from '@pages/_error';
 
 const sortByList = [
   { id: '1', name: 'Default', sort: 'default', order: 'desc' },
@@ -34,8 +34,8 @@ function Catalog() {
     page: page || 1,
   });
   const { data, isLoading, isError, error } = result;
-  if (error.status === 500) {
-    return <Error statusCode={500} />;
+  if (error) {
+    return <Error statusCode={error.status} message={error.data.message} />;
   }
   console.log(error);
   const handleSort = (sort, order) => {

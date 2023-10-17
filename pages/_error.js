@@ -1,10 +1,15 @@
-function Error({ statusCode }) {
+function Error({ statusCode, message }) {
   return (
-    <p>
-      {statusCode
-        ? `An error ${statusCode} occurred on server`
-        : 'An error occurred on client'}
-    </p>
+    <div className="page error-page">
+      {statusCode || message ? (
+        <>
+          <div className="error-page__status-code">{statusCode}</div>
+          <div className="error-page__message">{message}</div>
+        </>
+      ) : (
+        'An error occurred on client'
+      )}
+    </div>
   );
 }
 Error.getInitialProps = ({ res, err }) => {

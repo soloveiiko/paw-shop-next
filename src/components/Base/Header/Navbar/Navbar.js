@@ -4,12 +4,12 @@ const navbarList = [
   {
     id: 1,
     name: 'For <b>cat</b>',
-    link: '/catalog/cat?sort=default&order=desc&page=1',
+    link: '/catalog/cat',
   },
   {
     id: 2,
     name: 'For <b>dog</b>',
-    link: '/catalog/dog?sort=default&order=desc&page=1',
+    link: '/catalog/dog',
   },
   { id: 3, name: 'Contacts', link: '#' },
   { id: 4, name: 'Tracking', link: '#' },
