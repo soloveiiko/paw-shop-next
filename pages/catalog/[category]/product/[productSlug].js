@@ -3,12 +3,12 @@ import { useRouter } from 'next/router';
 import { wrapper } from '@redux/store';
 import {
   getProductItem,
-  useGetProductItemQuery,
   getRunningQueriesThunk,
+  useGetProductItemQuery,
 } from '@services/catalogApi';
 import {
-  getProductReviews,
   getCommentRunningQueriesThunk,
+  getProductReviews,
   useGetProductReviewsQuery,
 } from '@services/reviewApi';
 import { skipToken } from '@reduxjs/toolkit/query';
@@ -20,27 +20,38 @@ import {
   SimilarProducts,
   Switch,
 } from '@components';
+import Error from 'next/error';
 
 async function fetchProductId(slug) {
-  const response = await fetch(
-    `https://dropshop.demka.online/api/variation/${slug}`,
-    {
-      method: 'GET',
-      headers: {
-        Accept: 'application/json',
-        sHost: 'paw.shop',
-        'Cache-Control': 'no-cache',
-      },
+  try {
+    const response = await fetch(
+      `https://dropshop.demka.online/api/variation/${slug}`,
+      {
+        method: 'GET',
+        headers: {
+          Accept: 'application/json',
+          sHost: 'paw.shop',
+          'Cache-Control': 'no-cache',
+        },
+      }
+    );
+    const data = await response.json();
+    console.log('res data', data);
+
+    if (response.ok) {
+      return data.data.product.id;
+    } else {
+      console.error('An error occurred during the fetch:');
     }
-  );
-  const data = await response.json();
-  return data.data.product.id;
+  } catch (error) {
+    console.error('An error occurred during the fetch:', error.message);
+    throw error;
+  }
 }
 function Product() {
   const [currentPage, setCurrentPage] = useState(1);
   const router = useRouter();
   const { productSlug } = router.query;
-
   const productResult = useGetProductItemQuery(
     typeof productSlug === 'string' ? productSlug : skipToken,
     {
@@ -48,11 +59,14 @@ function Product() {
     }
   );
   const { data, isLoading, isError, error } = productResult;
+  if (error.status === 500) {
+    return <Error statusCode={500} />;
+  }
 
-  const productId = data.data.product.id;
+  const productId = data?.data.product.id;
   const commentsResult = useGetProductReviewsQuery(
     {
-      id: typeof productId === 'string' ? productId : skipToken,
+      id: typeof productId === 'string',
       params: { page: currentPage, per_page: 3 },
     },
     {
@@ -75,7 +89,7 @@ function Product() {
       )}
       {isLoading && <Preloader />}
       {isError && (
-        <div className="error">{error.message || 'An error occurred'}</div>
+        <div className="error">{error.data.message || 'An error occurred'}</div>
       )}
       <Breadcrumbs item={data.data.name} />
       {data && data.data && (

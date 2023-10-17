@@ -15,6 +15,7 @@ import {
   ProductList,
   SortBy,
 } from '@components';
+import Error from 'next/error';
 
 const sortByList = [
   { id: '1', name: 'Default', sort: 'default', order: 'desc' },
@@ -33,7 +34,10 @@ function Catalog() {
     page: page || 1,
   });
   const { data, isLoading, isError, error } = result;
-
+  if (error.status === 500) {
+    return <Error statusCode={500} />;
+  }
+  console.log(error);
   const handleSort = (sort, order) => {
     const url = `/catalog?sort=${sort}&order=${order}&page=1`;
     router.push(url);
@@ -46,6 +50,12 @@ function Catalog() {
   };
   return (
     <div className="page catalog-page">
+      {isLoading && <Preloader />}
+      {isError && (
+        <div className="error">
+          {error.status} {error.data.message}
+        </div>
+      )}
       {data && data.seo && (
         <Head>
           <title>{data.seo.title}</title>
@@ -54,8 +64,6 @@ function Catalog() {
           ))}
         </Head>
       )}
-      {isLoading && <Preloader />}
-      {isError && <div className="error">{error}</div>}
       <Breadcrumbs item="Category" />
       <h2>Catalog</h2>
       <section className="catalog-page__filters">

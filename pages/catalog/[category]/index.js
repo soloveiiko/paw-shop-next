@@ -17,6 +17,7 @@ import {
   ProductList,
   SortBy,
 } from '@components';
+import Error from 'next/error';
 
 const sortByList = [
   { id: '1', name: 'Default', sort: 'default', order: 'desc' },
@@ -46,7 +47,9 @@ function CatalogCategory() {
     }
   );
   const { data, isLoading, isError, error } = result;
-  console.log('result', data);
+  if (error.status === 500) {
+    return <Error statusCode={500} />;
+  }
   useEffect(() => {
     setSortItem(sort || 'default');
     setOrderItem(order || 'desc');
@@ -67,6 +70,12 @@ function CatalogCategory() {
   };
   return (
     <div className="page catalog-page">
+      {isLoading && <Preloader />}
+      {isError && (
+        <div className="error">
+          {error.status} {error.data.message}
+        </div>
+      )}
       {data && data.seo && (
         <Head>
           <title>{data.seo.title}</title>
@@ -75,8 +84,6 @@ function CatalogCategory() {
           ))}
         </Head>
       )}
-      {isLoading && <Preloader />}
-      {isError && <div className="error">{error}</div>}
       <Breadcrumbs item="Category" />
       <h2>Catalog</h2>
       <section className="catalog-page__filters">

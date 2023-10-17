@@ -5,7 +5,13 @@ import { preloader } from '@public/images';
 function Preloader() {
   return (
     <div className="preloader">
-      <Image className="preloader__image" src={preloader} alt="Preloader" />
+      <Image
+        className="preloader__image"
+        src={preloader}
+        height="200"
+        width="200"
+        alt="Preloader"
+      />
     </div>
   );
 }
