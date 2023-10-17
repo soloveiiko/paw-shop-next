@@ -1,12 +1,16 @@
 import { ProductBody, SimilarProducts, Switch } from '@components';
 import Head from 'next/head';
-import { getProductItem, useGetProductItemQuery } from '@services/catalogApi';
+import {
+  getProductItem,
+  useGetProductItemQuery,
+  getRunningQueriesThunk,
+} from '@services/catalogApi';
 import { wrapper } from '@redux/store';
 import { useRouter } from 'next/router';
 import { skipToken } from '@reduxjs/toolkit/query';
 import {
   getProductReviews,
-  getRunningQueriesThunk,
+  getCommentRunningQueriesThunk,
   useGetProductReviewsQuery,
 } from '@services/reviewApi';
 import Preloader from '@components/Base/Preloader/Preloader';
@@ -41,7 +45,7 @@ function Product() {
   );
   const { data, isLoading, isError, error } = productResult;
 
-  const productId = productResult.data.data.product.id;
+  const productId = data.data.product.id;
   const commentsResult = useGetProductReviewsQuery(
     {
       id: typeof productId === 'string' ? productId : skipToken,
@@ -95,10 +99,12 @@ export const getServerSideProps = wrapper.getServerSideProps(
       store.dispatch(
         getProductReviews.initiate({
           id: productId,
+          params: { page: 1, per_page: 3 },
         })
       );
     }
     await Promise.all(store.dispatch(getRunningQueriesThunk()));
+    await Promise.all(store.dispatch(getCommentRunningQueriesThunk()));
     return {
       props: {},
     };

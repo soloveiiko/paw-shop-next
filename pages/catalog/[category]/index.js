@@ -20,18 +20,18 @@ const sortByList = [
   { id: '4', name: 'The most popular first', sort: 'rating', order: 'desc' },
 ];
 
-function Catalog() {
+function CatalogCategory() {
   const router = useRouter();
   const { category, sort, order, page } = router.query;
-  const [sortItem, setSortItem] = useState('default');
-  const [orderItem, setOrderItem] = useState('desc');
-  const [, setCurrentPage] = useState(Number(page) || 1);
+  const [currentPage, setCurrentPage] = useState(Number(page) || 1);
+  const [sortItem, setSortItem] = useState(sort || 'default');
+  const [orderItem, setOrderItem] = useState(order || 'desc');
   const result = useGetProductsByParamsQuery(
     typeof category === 'string'
       ? {
           sort: sort || 'default',
           order: order || 'desc',
-          page: page || 1,
+          page: page || currentPage,
           per_page: 1,
           category: category || 'cat',
         }
@@ -42,19 +42,18 @@ function Catalog() {
   );
   const { data, isLoading, isError, error } = result;
   console.log('result', data);
-
   useEffect(() => {
-    setSortItem('default');
-    setOrderItem('desc');
+    setSortItem(sort || 'default');
+    setOrderItem(order || 'desc');
     setCurrentPage(1);
   }, [category]);
 
   const handleSort = (sort, order) => {
-    const url = `/catalog/${category}?sort=${sort}&order=${order}&page=1`;
-    router.push(url);
     setSortItem(sort);
     setOrderItem(order);
     setCurrentPage(1);
+    const url = `/catalog/${category}?sort=${sort}&order=${order}&page=1`;
+    router.push(url);
   };
   const handlePagination = (selectedPage) => {
     setCurrentPage(selectedPage);
@@ -107,11 +106,11 @@ export const getServerSideProps = wrapper.getServerSideProps(
     if (category) {
       store.dispatch(
         getProductsByParams.initiate({
-          sort: sort,
-          order: order,
-          page: page,
+          sort: sort || 'default',
+          order: order || 'desc',
+          page: page || 1,
           per_page: 1,
-          category: category,
+          category: category || 'cat',
         })
       );
     }
@@ -123,4 +122,4 @@ export const getServerSideProps = wrapper.getServerSideProps(
   }
 );
 
-export default Catalog;
+export default CatalogCategory;

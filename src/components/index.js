@@ -9,6 +9,10 @@ import ProductReview from '@components/Product/ProductReview/ProductReview';
 import ProductSlider from '@components/Product/ProductSlider/ProductSlider';
 import SimilarProducts from '@components/Product/SimilarProducts/SimilarProducts';
 import Switch from '@components/Product/Switch/Switch';
+import Pagination from '@components/Base/Pagination/Pagination';
+import Preloader from '@components/Base/Preloader/Preloader';
+import Breadcrumbs from '@components/Base/Breadcrumbs/Breadcrumbs';
+
 export {
   CategoryFilter,
   PetsFilter,
@@ -21,4 +25,7 @@ export {
   SimilarProducts,
   ProductSlider,
   ProductReview,
+  Preloader,
+  Breadcrumbs,
+  Pagination,
 };

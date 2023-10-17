@@ -42,6 +42,6 @@ export const reviewApi = createApi({
 });
 export const {
   useGetProductReviewsQuery,
-  util: { getRunningQueriesThunk },
+  util: { getRunningQueriesThunk: getCommentRunningQueriesThunk },
 } = reviewApi;
 export const { getProductReviews } = reviewApi.endpoints;

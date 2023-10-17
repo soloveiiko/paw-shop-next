@@ -1,16 +1,20 @@
-import { CategoryFilter, PetsFilter, ProductList, SortBy } from '@components';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { wrapper } from '@redux/store';
 import {
   getProductsByParams,
   getRunningQueriesThunk,
   useGetProductsByParamsQuery,
 } from '@services/catalogApi';
-import Pagination from '@components/Base/Pagination/Pagination';
-import { wrapper } from '@redux/store';
-import Preloader from '@components/Base/Preloader/Preloader';
-import Head from 'next/head';
-import Breadcrumbs from '@components/Base/Breadcrumbs/Breadcrumbs';
+import {
+  Breadcrumbs,
+  CategoryFilter,
+  Pagination,
+  PetsFilter,
+  Preloader,
+  ProductList,
+  SortBy,
+} from '@components';
 
 const sortByList = [
   { id: '1', name: 'Default', sort: 'default', order: 'desc' },
@@ -21,30 +25,23 @@ const sortByList = [
 
 function Catalog() {
   const router = useRouter();
-  const { category, sort, order, page } = router.query;
-  const [sortItem, setSortItem] = useState('default');
-  const [orderItem, setOrderItem] = useState('desc');
-  const [, setCurrentPage] = useState(Number(page) || 1);
-  const result = useGetProductsByParamsQuery({ per_page: 2, page: page });
+  const { sort, order, page } = router.query;
+  const result = useGetProductsByParamsQuery({
+    sort: sort || 'default',
+    order: order || 'desc',
+    per_page: 2,
+    page: page || 1,
+  });
   const { data, isLoading, isError, error } = result;
-  console.log('result', data);
-
-  useEffect(() => {
-    setSortItem('default');
-    setOrderItem('desc');
-    setCurrentPage(1);
-  }, [category]);
 
   const handleSort = (sort, order) => {
-    const url = `/catalog/${category}?sort=${sort}&order=${order}&page=1`;
+    const url = `/catalog?sort=${sort}&order=${order}&page=1`;
     router.push(url);
-    setSortItem(sort);
-    setOrderItem(order);
-    setCurrentPage(1);
   };
   const handlePagination = (selectedPage) => {
-    setCurrentPage(selectedPage);
-    const url = `/catalog/${category}?sort=${sortItem}&order=${orderItem}&page=${selectedPage}`;
+    const url = `/catalog?sort=${sort || 'default'}&order=${
+      order || 'desc'
+    }&page=${selectedPage}`;
     router.push(url);
   };
   return (
@@ -68,8 +65,8 @@ function Catalog() {
           <SortBy
             sortByList={sortByList}
             handleSort={handleSort}
-            sortItem={sortItem}
-            orderItem={orderItem}
+            sortItem={sort}
+            orderItem={order}
           />
         </div>
       </section>
@@ -89,15 +86,14 @@ function Catalog() {
 
 export const getServerSideProps = wrapper.getServerSideProps(
   (store) => async (context) => {
-    const { category, sort, order, page } = context.query;
-    if (category) {
+    const { sort, order, page } = context.query;
+    if (context) {
       store.dispatch(
         getProductsByParams.initiate({
-          sort: sort,
-          order: order,
-          page: page,
-          per_page: 1,
-          category: category,
+          sort: sort || 'default',
+          order: order || 'desc',
+          per_page: 2,
+          page: page || 1,
         })
       );
     }
