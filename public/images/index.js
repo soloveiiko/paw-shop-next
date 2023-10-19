@@ -39,18 +39,11 @@ import cardWayForPay from './cards/wayforpay.webp';
 // Pets
 import petCat from './pets/cat.webp';
 import petDog from './pets/dog.webp';
-// Products
-import prToy1 from './products/toy1.webp';
-import prToy2 from './products/toy2.webp';
-import prToy3 from './products/toy3.webp';
-import prToy4 from './products/toy4.webp';
-// Reviews
-import review from './reviews/review.webp';
 // Special offers
 import spCart from './special-offers/cart.webp';
 // Default
-import defaultImage from './default.webp';
-import preloader from './Loader 1.gif';
+import defaultImage from './default/default.webp';
+import preloader from './default/preloader.gif';
 
 export {
   preloader,
@@ -81,11 +74,6 @@ export {
   cardPayPal,
   cardFondy,
   cardCheque,
-  review,
-  prToy1,
-  prToy4,
-  prToy2,
-  prToy3,
   facebook,
   twitter,
   instagram,
