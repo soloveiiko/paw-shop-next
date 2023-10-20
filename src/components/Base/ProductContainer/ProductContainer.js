@@ -1,4 +1,3 @@
-import React from 'react';
 import ProductItem from '@components/ProductItem/ProductItem';
 
 function ProductContainer({ products }) {

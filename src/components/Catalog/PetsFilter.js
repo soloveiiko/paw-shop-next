@@ -1,6 +1,5 @@
 import Link from 'next/link';
-import { icoCat, icoDog } from '@public/images';
-import Image from 'next/image';
+import Icon from '@components/Base/Icon';
 
 function PetsFilter() {
   return (
@@ -12,14 +11,7 @@ function PetsFilter() {
         <span className="pets-filter__text">
           for<b className="pets-filter__marker cat">cat</b>
         </span>
-        <Image
-          className="pets-filter__icon"
-          src={icoCat}
-          width="30"
-          height="30"
-          priority
-          alt="Cat"
-        />
+        <Icon className="pets-filter__icon" name="cat" />
       </Link>
       <Link
         href="/catalog/dog?sort=default&order=desc&page=1"
@@ -28,14 +20,7 @@ function PetsFilter() {
         <span className="pets-filter__text">
           for<b className="pets-filter__marker dog">dog</b>
         </span>
-        <Image
-          className="pets-filter__icon"
-          src={icoDog}
-          width="30"
-          height="30"
-          priority
-          alt="Dog"
-        />
+        <Icon className="pets-filter__icon" name="dog" />
       </Link>
     </div>
   );

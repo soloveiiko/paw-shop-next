@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import StarsRange from '@components/Base/StarsRange/StarsRange';
-import { icoArrowAccent } from '@public/images';
 import Link from 'next/link';
-import Image from "next/image";
+import Image from 'next/image';
+import Icon from '@components/Base/Icon';
 
 const ReviewsItem = (props) => {
   const [maxVisibleImages, setMaxVisibleImages] = useState(2);
@@ -78,14 +78,7 @@ const ReviewsItem = (props) => {
       {props.isLink && (
         <Link href="#" className="reviews-item__link">
           See the product
-          <img
-            className="reviews-item__arrow"
-            src={icoArrowAccent}
-            width="9.5"
-            height="9.5"
-            loading="lazy"
-            alt="Arrow"
-          />
+          <Icon className="reviews-item__arrow" name="arrow-accent" />
         </Link>
       )}
     </div>

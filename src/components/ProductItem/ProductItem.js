@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { defaultImage, icoBasket } from 'public/images';
+import { defaultImage } from 'public/images';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
+import Icon from '@components/Base/Icon';
 
 const DynamicRating = dynamic(
   () => import('@components/Base/StarsRange/StarsRange'),
@@ -73,7 +74,7 @@ function ProductItem(props) {
           <div className="products-item__in-basket-container in-basket">
             <button className="in-basket__btn" onClick={handleAddToCart}>
               +
-              <Image src={icoBasket} width="20" height="20" alt="In Cart" />
+              <Icon name="basket" />
             </button>
           </div>
         </div>

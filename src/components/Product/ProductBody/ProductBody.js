@@ -1,13 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Amount from '@components/Base/Amount/Amount';
-import {
-  facebookBlue,
-  icoReturn,
-  telegramBlue,
-  twitterBlue,
-} from '@public/images';
-import Image from 'next/image';
 import dynamic from 'next/dynamic';
+import Icon from '@components/Base/Icon';
+
 const DynamicRating = dynamic(
   () => import('@components/Base/StarsRange/StarsRange'),
   {
@@ -113,13 +108,7 @@ const ProductBody = ({ data, switching }) => {
             </div>
           </div>
           <div className="product-body__return">
-            <Image
-              className="product-body__return-img"
-              src={icoReturn}
-              alt="return"
-              width="30"
-              height="30"
-            />
+            <Icon className="product-body__return-img" name="return" />
             <span className="product-body__return-text">
               Free return within 15 days
             </span>
@@ -128,31 +117,13 @@ const ProductBody = ({ data, switching }) => {
             <span className="share__subtitle">Share:</span>
             <div className="share__list">
               <div className="share__item_telegram">
-                <Image
-                  className="share__image"
-                  src={telegramBlue}
-                  alt="Telegram"
-                  width="18"
-                  height="15"
-                />
+                <Icon className="share__image" name="telegram-blue" />
               </div>
               <div className="share__item_facebook">
-                <Image
-                  className="share__image"
-                  src={facebookBlue}
-                  alt="Facebook"
-                  width="10"
-                  height="20"
-                />
+                <Icon className="share__image" name="facebook-blue" />
               </div>
               <div className="share__item_twitter">
-                <Image
-                  className="share__image"
-                  src={twitterBlue}
-                  alt="Twitter"
-                  width="20"
-                  height="17"
-                />
+                <Icon className="share__image" name="twitter-blue" />
               </div>
             </div>
           </div>

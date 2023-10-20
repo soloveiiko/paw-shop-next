@@ -1,5 +1,3 @@
-import { icoBasket, icoUser } from 'public/images';
-import Image from 'next/image';
 import Icon from '@components/Base/Icon';
 
 function Tools({ toggleSidebar }) {

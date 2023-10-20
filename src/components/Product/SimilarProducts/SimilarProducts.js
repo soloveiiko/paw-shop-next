@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import ProductContainer from '@components/Base/ProductContainer/ProductContainer';
 import { useGetProductsByParamsQuery } from '@services/catalogApi';
 
-const SimilarProducts = () => {
+function SimilarProducts() {
   const [randomProducts, setRandomProducts] = useState([]);
   const { data } = useGetProductsByParamsQuery({ per_page: 4, sort: 'random' });
   useEffect(() => {
@@ -20,6 +20,6 @@ const SimilarProducts = () => {
       </div>
     </section>
   );
-};
+}
 
 export default SimilarProducts;

@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
-import { icoAddImage } from '@public/images';
 import Image from 'next/image';
+import Icon from '@components/Base/Icon';
 
 function AddImageField({ images, setImages, imageURLs, setImageURLs }) {
   // const [images, setImages] = useState([]);
@@ -41,7 +41,7 @@ function AddImageField({ images, setImages, imageURLs, setImageURLs }) {
       )}
       <label className="images-field__label">
         <span className="images-field__icon">
-          <Image src={icoAddImage} alt="Add" />
+          <Icon name="add-image" />
         </span>
         <span className="images-field__text">Choose images</span>
         <input

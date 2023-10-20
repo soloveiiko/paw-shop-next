@@ -1,5 +1,5 @@
-import { icoArrowRight, icoCat, icoDog } from 'public/images';
 import Link from 'next/link';
+import Icon from '@components/Base/Icon';
 
 function ForPetLongButton({ isCat, isDog }) {
   return (
@@ -9,22 +9,8 @@ function ForPetLongButton({ isCat, isDog }) {
           <span className="product-for-pets__text">
             Products for <b className="product-for-pets__marker cat">cat</b>
           </span>
-          <img
-            className="product-for-pets__icon"
-            src={icoCat}
-            width="30"
-            height="30"
-            loading="lazy"
-            alt="Cat"
-          />
-          <img
-            className="product-for-pets__arrow"
-            src={icoArrowRight}
-            width="9.5"
-            height="9.5"
-            loading="lazy"
-            alt="Arrow"
-          />
+          <Icon className="product-for-pets__icon" name="cat" />
+          <Icon className="product-for-pets__arrow" name="arrow-right" />
         </Link>
       )}
       {isDog && (
@@ -32,22 +18,8 @@ function ForPetLongButton({ isCat, isDog }) {
           <span className="product-for-pets__text">
             Products for <b className="product-for-pets__marker dog">dog</b>
           </span>
-          <img
-            className="product-for-pets__icon"
-            src={icoDog}
-            width="30"
-            height="30"
-            loading="lazy"
-            alt="Dog"
-          />
-          <img
-            className="product-for-pets__arrow"
-            src={icoArrowRight}
-            width="9.5"
-            height="9.5"
-            loading="lazy"
-            alt="Arrow"
-          />
+          <Icon className="product-for-pets__icon" name="dog" />
+          <Icon className="product-for-pets__arrow" name="arrow-right" />
         </Link>
       )}
     </div>

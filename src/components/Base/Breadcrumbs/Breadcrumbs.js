@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
-const Breadcrumbs = ({ item }) => {
+function Breadcrumbs({ item }) {
   const routes = [
     { route: '/', href: ['/'], title: 'Home', slug: null },
     {
@@ -75,6 +75,6 @@ const Breadcrumbs = ({ item }) => {
       ))}
     </ul>
   );
-};
+}
 
 export default Breadcrumbs;
