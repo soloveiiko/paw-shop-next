@@ -1,18 +1,12 @@
-import { icoBasket, icoUser } from 'public/images';
+import { icoBasket } from 'public/images';
 import Image from 'next/image';
+import Icon from '@components/Base/Icon';
 
 function Tools({ toggleSidebar }) {
   return (
     <div className="header__tools tools">
       <button className="tools__profile">
-        <Image
-          className="tools__profile-img"
-          src={icoUser}
-          width="26"
-          height="26"
-          alt="Profile"
-          priority
-        />
+        <Icon name="user" />
       </button>
       <div className="tools__basket">
         <button className="tools__basket-img">

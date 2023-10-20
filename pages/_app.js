@@ -1,7 +1,6 @@
 import Layout from '../components/layout';
 import { wrapper } from '@redux/store';
 import { Provider } from 'react-redux';
-import '@assets/styles/scss/index.scss';
 import { Router } from 'next/router';
 import { Preloader } from '@components';
 import { useEffect, useState } from 'react';
