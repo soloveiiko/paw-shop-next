@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { Router } from 'next/router';
 import { Preloader } from '@components';
 import { useEffect, useState } from 'react';
+import './../src/assets/styles/scss/style.scss';
 
 function MyApp({ Component, ...rest }) {
   const { store, props } = wrapper.useWrappedStore(rest);
