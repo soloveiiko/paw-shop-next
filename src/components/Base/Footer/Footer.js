@@ -1,7 +1,7 @@
-import Subscribe from '@components/Base/Footer/Subscribe/Subscribe';
-import InformationPanel from '@components/Base/Footer/InformationPanel/InformationPanel';
-import Links from '@components/Base/Footer/Links/Links';
-import Cards from '@components/Base/Footer/Cards/Cards';
+import Subscribe from '@components/Base/Footer/Subscribe';
+import InformationPanel from '@components/Base/Footer/InformationPanel';
+import Links from '@components/Base/Footer/Links';
+import Cards from '@components/Base/Footer/Cards';
 
 function Footer() {
   return (
@@ -16,9 +16,9 @@ function Footer() {
         </div>
         <div className="footer__bottom">
           <Cards />
-          <div className="footer__copyright">
+          <span className="footer__copyright">
             Copyright © 2022. All Rights Reserved by SleepGo
-          </div>
+          </span>
         </div>
       </div>
     </footer>

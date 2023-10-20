@@ -46,9 +46,9 @@ const ReviewsItem = (props) => {
     <div className="reviews-item">
       <div className="reviews-item__date">{changeDateFormat(props.date)}</div>
       <div className="reviews-item__user">
-        <div className="reviews-item__username">
+        <span className="reviews-item__username">
           {props.username ? props.username : 'User'}
-        </div>
+        </span>
         <StarsRange value={props.rating} />
       </div>
       <div className="reviews-item__body">{props.body}</div>

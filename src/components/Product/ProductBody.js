@@ -10,7 +10,7 @@ const DynamicRating = dynamic(
   }
 );
 const DynamicSlider = dynamic(
-  () => import('@components/Product/ProductSlider/ProductSlider'),
+  () => import('@components/Product/ProductSlider'),
   {
     ssr: false,
   }
@@ -85,15 +85,15 @@ const ProductBody = ({ data, switching }) => {
               <div className="product-body__price-container">
                 {data.prices.discount === 1 ? (
                   <>
-                    <div className="product-body__prev-price">
+                    <span className="product-body__prev-price">
                       {data.price_old}$
-                    </div>
-                    <div className="product-body__curr-price">
+                    </span>
+                    <span className="product-body__curr-price">
                       {data.price}$
-                    </div>
+                    </span>
                   </>
                 ) : (
-                  <div className="product-body__price">{data.price}$</div>
+                  <span className="product-body__price">{data.price}$</span>
                 )}
               </div>
               <div className="product-body__btn-container">

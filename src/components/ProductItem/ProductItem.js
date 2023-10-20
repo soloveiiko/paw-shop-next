@@ -28,9 +28,9 @@ function ProductItem(props) {
       <div className="products-item__additions">
         {/*{product.isNew && <div className="products-item__new">New</div>}*/}
         {props.isDiscount === 1 && (
-          <div className="products-item__discount">
+          <span className="products-item__discount">
             -{props.discountPercent}%
-          </div>
+          </span>
         )}
       </div>
       <Link href={`/catalog/${props.category}/product/${props.id}`}>
@@ -56,17 +56,17 @@ function ProductItem(props) {
         </Link>
         <div className="products-item__stars-container stars-range">
           {isClient && <DynamicRating value={props.rating} />}
-          <div className="products-item__reviews">{props.commentsCount}</div>
+          <span className="products-item__reviews">{props.commentsCount}</span>
         </div>
         <div className="products-item__price-container">
           {props.isDiscount === 1 ? (
             <div className="products-item__price-wrapper">
-              <div className="products-item__curr-price">
+              <span className="products-item__curr-price">
                 {props.currPrice} UAH
-              </div>
-              <div className="products-item__prev-price">
+              </span>
+              <span className="products-item__prev-price">
                 {props.oldPrice} UAH
-              </div>
+              </span>
             </div>
           ) : (
             <div className="products-item__price">{props.currPrice} UAH</div>

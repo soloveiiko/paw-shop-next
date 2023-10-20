@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { amatic_sc } from '../../../../../components/layout';
+import { amatic_sc } from '../../../../components/layout';
 import Icon from '@components/Base/Icon';
 
 const socialNetworkList = [

@@ -10,8 +10,8 @@ function Tools({ toggleSidebar }) {
         <button className="tools__basket-img">
           <Icon className="tools__image" name="basket" />
         </button>
-        <div className="tools__basket-counter">0</div>
-        <div className="tools__basket-price">$0</div>
+        <span className="tools__basket-counter">0</span>
+        <span className="tools__basket-price">$0</span>
       </div>
       <div className="tools__btn-container" onClick={toggleSidebar}>
         <button className="tools__open-sidebar-btn" title="Open"></button>

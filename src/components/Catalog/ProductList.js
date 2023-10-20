@@ -1,7 +1,6 @@
 import ProductItem from '@components/ProductItem/ProductItem';
 
 function ProductList({ currentItems }) {
-  console.log(currentItems);
   return (
     <div className="product-list">
       <div className="product-list__wrapper">
