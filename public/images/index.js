@@ -49,8 +49,8 @@ import review from './reviews/review.webp';
 // Special offers
 import spCart from './special-offers/cart.webp';
 // Default
-import defaultImage from './default.webp';
-import preloader from './Loader 1.gif';
+import defaultImage from './default/default.webp';
+import preloader from './default/preloader.gif';
 
 export {
   preloader,

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import Image from '@components/Base/Image/Image';
 import StarsRange from '@components/Base/StarsRange/StarsRange';
 import { icoArrowAccent } from '@public/images';
 import Link from 'next/link';
+import Image from "next/image";
 
 const ReviewsItem = (props) => {
   const [maxVisibleImages, setMaxVisibleImages] = useState(2);

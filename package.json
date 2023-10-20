@@ -6,17 +6,18 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "build:icons": "node ./build-icons.mjs"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.6",
-    "abort-controller": "^3.0.0",
-    "compress-json": "^2.1.2",
     "formik": "^2.4.4",
+    "glob": "^10.3.10",
     "keen-slider": "^6.8.6",
     "next": "13.5.4",
     "next-redux-wrapper": "^8.1.0",
     "node-fetch": "^3.3.2",
+    "node-html-parser": "^6.1.10",
     "react": "^18.2.0",
     "react-dom": "^18",
     "react-icons": "^4.10.1",
@@ -25,12 +26,12 @@
     "react-select": "^5.7.7",
     "react-simple-star-rating": "^5.1.7",
     "redux": "^4.2.1",
+    "sharp": "^0.32.6",
     "swiper": "^10.2.0",
     "yup": "^1.2.0"
   },
   "devDependencies": {
     "prettier": "^3.0.3",
-    "redux-devtools-extension": "^2.13.9",
-    "sass": "^1.66.1"
+    "redux-devtools-extension": "^2.13.9"
   }
 }
