@@ -2,13 +2,13 @@ import { SlArrowRight } from 'react-icons/sl';
 
 function NextArrow({ innerRef, className }) {
   return (
-    <div
+    <button
       ref={innerRef}
       className={`next-arrow${className ? ` ${className}` : ''}`}
       aria-hidden="true"
     >
       <SlArrowRight />
-    </div>
+    </button>
   );
 }
 

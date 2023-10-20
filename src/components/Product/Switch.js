@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import AddReview from '@components/Product/AddReview/AddReview';
-import ProductCharacteristics from '@components/Product/ProductCharacteristics/ProductCharacteristics';
-import ProductReview from '@components/Product/ProductReview/ProductReview';
+import ProductCharacteristics from '@components/Product/ProductCharacteristics';
+import ProductReview from '@components/Product/ProductReview';
 
 const Switch = ({ product, comments, handlePagination }) => {
   const [activeTab, setActiveTab] = useState('description');

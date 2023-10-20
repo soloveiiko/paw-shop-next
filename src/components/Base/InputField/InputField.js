@@ -22,7 +22,7 @@ function InputField({
         style={inputStyle}
       />
       {isErrorFromServer ? (
-        <div className={`${className}__error`}>{errorFromServer}</div>
+        <span className={`${className}__error`}>{errorFromServer}</span>
       ) : (
         isFieldError && (
           <ErrorMessage

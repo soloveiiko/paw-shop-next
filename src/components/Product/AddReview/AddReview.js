@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Field, Form, Formik } from 'formik';
-import AddImageField from '@components/Product/AddReview/AddImageField/AddImageField';
 import { Rating } from 'react-simple-star-rating';
 import * as Yup from 'yup';
+import AddImageField from '@components/Product/AddReview/AddImageField/AddImageField';
 
 function AddReview({ product }) {
   const [images, setImages] = useState([]);

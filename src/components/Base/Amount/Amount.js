@@ -4,7 +4,7 @@ function Amount({ handleIncrement, handleDecrement, quantity }) {
       <button className="amount__minus" onClick={handleDecrement}>
         -
       </button>
-      <div className="amount__curr-quantity">{quantity}</div>
+      <span className="amount__curr-quantity">{quantity}</span>
       <button className="amount__plus" onClick={handleIncrement}>
         +
       </button>

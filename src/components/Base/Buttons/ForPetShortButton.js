@@ -1,6 +1,5 @@
 import Link from 'next/link';
-import { icoArrowLeft, icoArrowRight } from '@public/images';
-import Image from 'next/image';
+import Icon from '@components/Base/Icon';
 
 function ForPetShortButton({ isCat, isDog, className }) {
   return (
@@ -8,16 +7,9 @@ function ForPetShortButton({ isCat, isDog, className }) {
       {isCat && (
         <Link
           href="/catalog/cat"
-          className={`for-pets__btn cat-btn ${className}`}
+          className={`for-pets__btn cat-btn ${className ? className : ''}`}
         >
-          <Image
-            className="for-pets__arrow"
-            src={icoArrowLeft}
-            width="9.5"
-            height="9.5"
-            loading="lazy"
-            alt="arrow"
-          />
+          <Icon className="for-pets__arrow" name="arrow-left" />
           <span className="for-pets__text">
             For <b className="for-pets__marker cat">cat</b>
           </span>
@@ -26,19 +18,12 @@ function ForPetShortButton({ isCat, isDog, className }) {
       {isDog && (
         <Link
           href="/catalog/dog"
-          className={`for-pets__btn dog-btn ${className}`}
+          className={`for-pets__btn dog-btn  ${className ? className : ''}`}
         >
           <span className="for-pets__text">
             For <b className="for-pets__marker dog">dog</b>
           </span>
-          <Image
-            className="for-pets__arrow"
-            src={icoArrowRight}
-            width="9.5"
-            height="9.5"
-            loading="lazy"
-            alt="arrow"
-          />
+          <Icon className="for-pets__arrow" name="arrow-right" />
         </Link>
       )}
     </div>

@@ -1,13 +1,13 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
-const Breadcrumbs = ({ item }) => {
+function Breadcrumbs({ item }) {
   const routes = [
     { route: '/', href: ['/'], title: 'Home', slug: null },
     {
       route: '/catalog',
-      href: ['/catalog/'],
+      href: ['/catalog/all'],
       title: 'Catalog',
       slug: null,
     },
@@ -20,7 +20,7 @@ const Breadcrumbs = ({ item }) => {
     {
       route: '/catalog/[category]/product/[productSlug]',
       href: ['/catalog/', '/product/'],
-      title: item || 'Product',
+      title: 'Product',
       slug: ['category', 'productSlug'],
     },
   ];
@@ -35,9 +35,10 @@ const Breadcrumbs = ({ item }) => {
       let href = '';
       let title = '';
       route.slug &&
-        route?.slug.map((slug, index) => {
+        route.slug.map((slug, index) => {
           href += route.href[index] + router.query[slug];
           if (i < actualRoutes.length - 1) {
+            console.log(router.query[slug]);
             router.query[slug]
               ? (title = router.query[slug])
               : (title = route.title);
@@ -51,7 +52,6 @@ const Breadcrumbs = ({ item }) => {
         title: title[0].toUpperCase() + title.slice(1),
       };
     });
-    console.log(router);
     setBreadcrumbs(breadcrumbs);
   }, [router]);
 
@@ -65,7 +65,7 @@ const Breadcrumbs = ({ item }) => {
             </Link>
           ) : (
             <span className="text breadcrumbs__item breadcrumbs__item_active">
-              {route.title}
+              {item || route.title}
             </span>
           )}
           {index < breadcrumbs.length - 1 && (
@@ -75,6 +75,6 @@ const Breadcrumbs = ({ item }) => {
       ))}
     </ul>
   );
-};
+}
 
 export default Breadcrumbs;

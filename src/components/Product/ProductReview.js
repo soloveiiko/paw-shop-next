@@ -8,11 +8,11 @@ function ProductReview({ comments, handlePagination }) {
       <div className="container product-review__container">
         <div className="product-review__stars-range">
           <StarsRange value={parseFloat(comments.data.total.avg)} size="40" />
-          <div className="product-review__range">
+          <span className="product-review__range">
             {typeof comments.data.total.avg === 'string'
               ? parseFloat(comments.data.total.avg).toFixed(1)
               : comments.data.total.avg.toFixed(1)}
-          </div>
+          </span>
         </div>
         <div className="product-review__list">
           {comments.data.data.map((review) => (

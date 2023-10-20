@@ -4,7 +4,7 @@ import {
   cardLiqpay,
   cardPayPal,
   cardWayForPay,
-} from 'public/images';
+} from '@public/images';
 import Image from 'next/image';
 
 const cardsList = [
