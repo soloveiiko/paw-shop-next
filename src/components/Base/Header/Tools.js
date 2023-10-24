@@ -1,11 +1,10 @@
 import Icon from '@components/Base/Icon';
-import User from '@public/images/svg-icons/user.svg';
+import { User } from '@public/images/icons/index.js';
 
 function Tools({ toggleSidebar }) {
   return (
     <div className="header__tools tools">
       <button className="tools__profile">
-        {/*<Icon className="tools__profile-img" name="user" />*/}
         <User className="tools__profile-img" />
       </button>
       <div className="tools__basket">
