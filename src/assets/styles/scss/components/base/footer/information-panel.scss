@@ -34,7 +34,9 @@
 
   .social-network {
 
-    &__list, &__item, &__link {
+    &__list,
+    &__item,
+    &__link {
       display: flex;
       align-items: center;
     }
@@ -49,6 +51,11 @@
       height: 33rem;
       border-radius: 50rem;
       background-color: $accent;
+    }
+
+    &__image {
+      width: 25rem;
+      height: 25rem;
     }
   }
 }

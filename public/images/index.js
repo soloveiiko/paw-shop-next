@@ -1,16 +1,6 @@
-// Logo
-import logoDark from './logo/logo-dark.svg';
-import logoWhite from './logo/logo-white.svg';
 // Background
 import bgCat from './background/cat.webp';
 import bgDog from './background/dog.webp';
-// Social networks
-import facebook from './social-networks/facebook.svg';
-import twitter from './social-networks/twitter.svg';
-import instagram from './social-networks/instagram.svg';
-import facebookBlue from './social-networks/facebook-blue.svg';
-import twitterBlue from './social-networks/twitter-blue.svg';
-import telegramBlue from './social-networks/telegram-blue.svg';
 // Cards
 import cardPayPal from './cards/paypal.webp';
 import cardFondy from './cards/fondy.webp';
@@ -28,8 +18,6 @@ import preloader from './default/preloader.gif';
 
 export {
   preloader,
-  logoDark,
-  logoWhite,
   bgCat,
   bgDog,
   spCart,
@@ -40,11 +28,5 @@ export {
   cardPayPal,
   cardFondy,
   cardCheque,
-  facebook,
-  twitter,
-  instagram,
   defaultImage,
-  facebookBlue,
-  twitterBlue,
-  telegramBlue,
 };

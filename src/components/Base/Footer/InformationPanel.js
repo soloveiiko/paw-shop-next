@@ -26,7 +26,7 @@ function InformationPanel() {
             <li key={el.id} className="social-network__item">
               <Link className="social-network__link" href={el.link}>
                 <Icon
-                  className="information-panel__number-image"
+                  className="social-network__number-image"
                   name={el.image}
                 />
               </Link>
