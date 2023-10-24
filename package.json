@@ -2,14 +2,13 @@
   "name": "paw-shop-next",
   "version": "0.1.0",
   "private": true,
-  "type": "module",
   "scripts": {
     "dev": "open http://localhost:3000 && next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "icons": "npx @svgr/cli --out-dir public/images/icons -- public/images/svg-icons",
-    "create-index": "node create-index.mjs public/images/svg-icons public/images/icons/index.js"
+    "create-index": "node create-index.mjs public/images/svg-icons public/images/svg-icons/index.js"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.6",

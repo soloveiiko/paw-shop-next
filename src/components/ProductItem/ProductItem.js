@@ -3,7 +3,7 @@ import { defaultImage } from 'public/images';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
-import Icon from '@components/Base/Icon';
+import { Basket } from '@public/images/svg-icons';
 
 const DynamicRating = dynamic(
   () => import('@components/Base/StarsRange/StarsRange'),
@@ -74,7 +74,7 @@ function ProductItem(props) {
           <div className="products-item__in-basket-container in-basket">
             <button className="in-basket__btn" onClick={handleAddToCart}>
               +
-              <Icon name="basket" />
+              <Basket />
             </button>
           </div>
         </div>

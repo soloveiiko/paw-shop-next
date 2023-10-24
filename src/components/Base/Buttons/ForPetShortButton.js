@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Icon from '@components/Base/Icon';
+import { ArrowLeft, ArrowRight } from '@public/images/svg-icons';
 
 function ForPetShortButton({ isCat, isDog, className }) {
   return (
@@ -9,7 +9,7 @@ function ForPetShortButton({ isCat, isDog, className }) {
           href="/catalog/cat"
           className={`for-pets__btn cat-btn ${className ? className : ''}`}
         >
-          <Icon className="for-pets__arrow" name="arrow-left" />
+          <ArrowLeft className="for-pets__arrow" />
           <span className="for-pets__text">
             For <b className="for-pets__marker cat">cat</b>
           </span>
@@ -23,7 +23,7 @@ function ForPetShortButton({ isCat, isDog, className }) {
           <span className="for-pets__text">
             For <b className="for-pets__marker dog">dog</b>
           </span>
-          <Icon className="for-pets__arrow" name="arrow-right" />
+          <ArrowRight className="for-pets__arrow" />
         </Link>
       )}
     </div>

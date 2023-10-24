@@ -1,5 +1,4 @@
-import Icon from '@components/Base/Icon';
-import { User } from '@public/images/icons/index.js';
+import { Basket, User } from '@public/images/svg-icons';
 
 function Tools({ toggleSidebar }) {
   return (
@@ -9,7 +8,7 @@ function Tools({ toggleSidebar }) {
       </button>
       <div className="tools__basket">
         <button className="tools__basket-img">
-          <Icon className="tools__image" name="basket" />
+          <Basket className="tools__image" />
         </button>
         <span className="tools__basket-counter">0</span>
         <span className="tools__basket-price">$0</span>

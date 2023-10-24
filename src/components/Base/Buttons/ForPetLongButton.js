@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Icon from '@components/Base/Icon';
+import { ArrowRight, Cat, Dog } from '@public/images/svg-icons';
 
 function ForPetLongButton({ isCat, isDog }) {
   return (
@@ -9,8 +9,8 @@ function ForPetLongButton({ isCat, isDog }) {
           <span className="product-for-pets__text">
             Products for <b className="product-for-pets__marker cat">cat</b>
           </span>
-          <Icon className="product-for-pets__icon" name="cat" />
-          <Icon className="product-for-pets__arrow" name="arrow-right" />
+          <Cat className="product-for-pets__icon" />
+          <ArrowRight className="product-for-pets__arrow" />
         </Link>
       )}
       {isDog && (
@@ -18,8 +18,8 @@ function ForPetLongButton({ isCat, isDog }) {
           <span className="product-for-pets__text">
             Products for <b className="product-for-pets__marker dog">dog</b>
           </span>
-          <Icon className="product-for-pets__icon" name="dog" />
-          <Icon className="product-for-pets__arrow" name="arrow-right" />
+          <Dog className="product-for-pets__icon" />
+          <ArrowRight className="product-for-pets__arrow" />
         </Link>
       )}
     </div>

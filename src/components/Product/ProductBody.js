@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import Amount from '@components/Base/Amount/Amount';
 import dynamic from 'next/dynamic';
-import Icon from '@components/Base/Icon';
+import {
+  FacebookBlue,
+  Return,
+  TelegramBlue,
+  TwitterBlue,
+} from '@public/images/svg-icons';
 
 const DynamicRating = dynamic(
   () => import('@components/Base/StarsRange/StarsRange'),
@@ -108,7 +113,7 @@ const ProductBody = ({ data, switching }) => {
             </div>
           </div>
           <div className="product-body__return">
-            <Icon className="product-body__return-img" name="return" />
+            <Return className="product-body__return-img" />
             <span className="product-body__return-text">
               Free return within 15 days
             </span>
@@ -117,13 +122,13 @@ const ProductBody = ({ data, switching }) => {
             <span className="share__subtitle">Share:</span>
             <div className="share__list">
               <div className="share__item_telegram">
-                <Icon className="share__image" name="telegram-blue" />
+                <TelegramBlue className="share__image" />
               </div>
               <div className="share__item_facebook">
-                <Icon className="share__image" name="facebook-blue" />
+                <FacebookBlue className="share__image" />
               </div>
               <div className="share__item_twitter">
-                <Icon className="share__image" name="twitter-blue" />
+                <TwitterBlue className="share__image" />
               </div>
             </div>
           </div>
